@@ -24,9 +24,18 @@ code {
   color: #ccc;
   height: 80px;
   padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 .header h2 {
-  margin-top: 0
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.container {
+  margin-top: 110px;
 }
 
 .card{
@@ -42,7 +51,7 @@ code {
 }
 
 .card .card-image img {
-  max-width: 100px;
+  max-width: 80px;
   border-radius: 15px;
 }
 
@@ -51,10 +60,14 @@ code {
   border-radius: 15px;
 }
 
-.card .card-body {
+.mods p {
+  margin-top: 0;
+  margin-bottom: 7px;
 }
-.card .card-body p {
-  margin: 5px;
+.mods p:first-child {
+  margin-top: 0;
+}
+.mod-intro {
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -70,6 +83,12 @@ code {
 
 .table-description div:first-child{
   width: 40px;
+  font-size:0.75rem;
+}
+
+.table-description div:last-child{
+  font-weight: 400;
+  font-size: 0.75rem;
 }
 
 .description {

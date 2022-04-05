@@ -15,10 +15,10 @@ function Mods() {
                             <div className="card-image">
                                 <img src={require(`../assets/${mod.folder}/images/${mod.logo}`)} alt="" />
                             </div>
-                            <div className="card-body">
-                                <p>名称: {mod.name}</p>
-                                <p>作者: {mod.author}</p>
-                                <p>简介: {mod.intro}</p>
+                            <div className="card-body mods">
+                                <p style={{fontSize: "0.75rem"}}><b>名称</b>：{mod.name}</p>
+                                <p style={{fontSize: "0.75rem"}}><b>作者</b>：{mod.author}</p>
+                                <p style={{fontSize: "0.75rem"}} className="mod-intro"><b>简介</b>：{mod.intro}</p>
                             </div>
                         </div>
                     )
