@@ -16,23 +16,23 @@ let data = [
             recipe: "",
             tech: ""
         }, {
-            category: "动作",
-            child: [{
-                name: "挤鹿奶",
-                code: "",
-                image: "动作图示/挤鹿奶.png",
-                description: `
+            name: "挤鹿奶",
+            code: "",
+            image: "动作图示/挤鹿奶.png",
+            description: `
 | 对象 | 无眼鹿 |
 |---|---|
 | 产出 | 鹿奶*1 |
 | 险 | 引起无眼鹿的仇恨 |
 | 相关CD | 1天后产1瓶 |
 | 最大存量 | 1瓶 |
-                `,
-                recipe: "",
-                tech: ""
-            }]
-        }, {
+            `,
+            recipe: "",
+            tech: ""
+        }]
+    }, {
+        category: "料理",
+        child:[{
             name: "家常菜",
             image: "家常菜.png",
             code: "ndnr_chinesefood",
@@ -142,7 +142,7 @@ Q弹可口的布丁。
         category: "机制调整",
         child: [{
             name: "吃生肉",
-            image: "肉类.png",
+            image: "原版贴图/肉类.png",
             code: "",
             recipe: "",
             description: `
