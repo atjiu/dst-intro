@@ -29,7 +29,7 @@ function Toolbar() {
           }): null
         }
       </select>
-      <input type="text" className="" onKeyDown={e => {
+      <input type="search" className="" onKeyDown={e => {
         if (e.keyCode === 13) {
           PubSub.publish('Search', { keyword: e.target.value });
         }
