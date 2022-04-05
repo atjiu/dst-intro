@@ -377,6 +377,8 @@ Q弹可口的布丁。
             code: "ndnr_magma_milk",
             recipe: "",
             description: `
+来源：龙蝇
+
 持续放热，保暖效果是暖石的2倍，持续发光，高温，中温，低温三个阶段的光照和范围逐级递减，可引燃附近的可燃物。
 
 可在上面烤食物，10%概率食物被烤成灰烬。
@@ -384,6 +386,166 @@ Q弹可口的布丁。
 0-20度时为低温，20-50度时为中温，50-90度时为高温。不同温度阶段的外观及发光范围不同，可由龙蝇火炉，篝火等热源加热
 
 低于0度或落入水中时变成1-2个黑曜石
+            `,
+            tech: ""
+        }, {
+            name: "天候棒",
+            image: "天候棒.png",
+            code: "ndnr_weatherpole",
+            recipe: "",
+            description: `
+来源：蚁蛳
+
+借来的天候棒是未激活的，镶嵌不同宝石激活不同能力。
+            `,
+            tech: ""
+        }, {
+            name: "毒腺",
+            image: "毒腺.png",
+            code: "ndnr_venomgland",
+            recipe: "",
+            description: `
+食用可解蛇毒，但会扣75点生命(不会致死，保留最后1点)。
+可给武器抹毒，被有毒的武器打中会中蛇毒，持续70天;
+被中毒的生物打中有1/3概率也会中蛇毒，持续3天。
+中毒期间每2秒损失4点生命。
+            `,
+            tech: ""
+        }, {
+            name: "蛇油",
+            image: "蛇油.png",
+            code: "ndnr_snakeoil",
+            recipe: "",
+            description: `
+涂抹在身上后，青蛙舔一下会立即死亡;
+不受孢子云伤害且站在孢子云中食物新鲜度不受影响;
+不会因中毒生物的攻击而中毒。
+效果持续一天
+            `,
+            tech: ""
+        }, {
+            name: "黑曜石",
+            image: "黑曜石.png",
+            code: "ndnr_obsidian",
+            recipe: "",
+            description: `
+可用于制作或修补黑曜石物品。
+            `,
+            tech: ""
+        }, {
+            name: "蓝孢子种子",
+            image: "蓝色孢子种子.png",
+            code: "ndnr_blue_sporeseed",
+            recipe: "",
+            description: `
+从蟾蜍王处挤孢子有概率获得。
+外观、漂浮方式、保鲜时间均与孢子相同。
+可种植，种在地面即为蘑菇。
+            `,
+            tech: ""
+        }, {
+            name: "绿孢子种子",
+            image: "绿色孢子种子.png",
+            code: "ndnr_green_sporeseed",
+            recipe: "",
+            description: `
+从蟾蜍王处挤孢子有概率获得。
+外观、漂浮方式、保鲜时间均与孢子相同。
+可种植，种在地面即为蘑菇。
+            `,
+            tech: ""
+        }, {
+            name: "红孢子种子",
+            image: "红色孢子种子.png",
+            code: "ndnr_red_sporeseed",
+            recipe: "",
+            description: `
+从蟾蜍王处挤孢子有概率获得。
+外观、漂浮方式、保鲜时间均与孢子相同。
+可种植，种在地面即为蘑菇。
+            `,
+            tech: ""
+        }, {
+            name: "狗王牙",
+            image: "狗王牙.png",
+            code: "ndnr_bigtooth",
+            recipe: "",
+            description: `
+来源：狗王
+
+座狼的力量源泉，蕴含猎犬一族的神秘力量。
+            `,
+            tech: ""
+        }, {
+            name: "咖啡树",
+            image: "咖啡苗.png",
+            code: "ndnr_coffeebush",
+            recipe: "",
+            description: `
+掏高脚鸟巢1/9概率获得。
+
+使用常见肥料施肥，生长周期同浆果丛。
+            `,
+            tech: ""
+        }, {
+            name: "天界令牌",
+            image: "天界令牌.png",
+            code: "ndnr_godtoken",
+            recipe: "",
+            description: `
+从远古哨兵蜈蚣处偷取。
+带在身上时不会被月灵主动攻击。
+在非月岛地形且放在物品栏时，将不断招来影怪袭击。
+            `,
+            tech: ""
+        }, {
+            name: "能量核",
+            image: "能量核.png",
+            code: "ndnr_energy_core",
+            recipe: "",
+            description: `
+在被瓦格斯塔夫实验召唤来的天体英雄身上拆得。放在地面会发光，可升级部分容器为永久保鲜，升级后的物品会增加前缀“永恒的”。
+永恒容器可以抵抗孢子云的侵蚀。
+可升级容器:冰箱、盐盒、姐妹骨灰盒、蘑菇灯、炽菇灯、箱子、龙鳞宝箱、背包、小猪包、保鲜背包、坎普斯背包、旋涡斗篷。
+            `,
+            tech: ""
+        }, {
+            name: "触手血",
+            image: "触手血.png",
+            code: "ndnr_tentacleblood",
+            recipe: "",
+            description: `
+从巨型触手处抽血获得。
+使用后当一天触手王，触手不会主动仇恨你。注意，巨型触手周围的小触手忠心耿耿，可不会害怕伪触手王。
+            `,
+            tech: ""
+        }, {
+            name: "椰树叶",
+            image: "椰叶.png",
+            code: "ndnr_palmleaf",
+            recipe: "",
+            description: `
+砍伐椰子树获得。
+            `,
+            tech: ""
+        }, {
+            name: "陨铁",
+            image: "陨铁.png",
+            code: "ndnr_rock_iron",
+            recipe: "",
+            description: `
+大陨石落地时，若生成矿石，有一半概率形成陨铁矿。
+开采需求及掉落分布同龙蝇沙漠的卵石。开采可获得5~6个铁矿石。
+            `,
+            tech: ""
+        }, {
+            name: "铁矿石",
+            image: "铁矿石.png",
+            code: "ndnr_iron",
+            recipe: "",
+            description: `
+开采陨铁掉落。中、小流星落地时，若生成矿石，有一半概率形成铁矿石。
+冶炼合金的材料。
             `,
             tech: ""
         }]
