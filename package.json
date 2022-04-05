@@ -1,7 +1,8 @@
 {
-  "name": "ndnr-intro",
+  "name": "dst-intro",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tomoya92.github.io/dst-intro/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
