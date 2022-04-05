@@ -1,9 +1,9 @@
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import PubSub from 'pubsub-js'
 import Toolbar from './Toolbar';
 
-function Header({ data }) {
+function Header() {
   let [toolbarStatus, setToolbarStatus] = useState(false);
   PubSub.subscribe('Header Data', function (msg, data) {
     setToolbarStatus(data.toolbarStatus)

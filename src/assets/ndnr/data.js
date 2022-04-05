@@ -1,4 +1,4 @@
-export default [
+let data = [
     {
         category: "动作",
         child: [{
@@ -34,4 +34,6 @@ as料理ajsd
             tech: "烹饪锅"
         }]
     },
-]
+];
+
+export default data;

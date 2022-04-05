@@ -1,7 +1,7 @@
 
 import PubSub from 'pubsub-js'
 import { marked } from 'marked'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function getCategories(modData) {
     return modData.map(function (item) {

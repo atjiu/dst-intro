@@ -1,7 +1,7 @@
 import mods from "../assets/mods.json";
 import PubSub from 'pubsub-js'
 
-function Mods({data}) {
+function Mods() {
     return (
         <div className="container">
             {
