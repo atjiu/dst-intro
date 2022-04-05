@@ -102,6 +102,272 @@ Q弹可口的布丁。
 食用后获得舒缓茶的精神回复效果
             `,
             tech: "烹饪锅"
+        }, {
+            name: "瑶柱汤",
+            image: "瑶柱汤.png",
+            code: "ndnr_scallopsoup",
+            recipe: "瑶柱*2+乳制品>=1+冰",
+            description: `
+三围：37.5饱食，40血，-5理智
+保质期：10天
+
+作者都不知道瑶柱是什么。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "东坡肉",
+            image: "东坡肉.png",
+            code: "ndnr_dongpopork",
+            recipe: "大肉>=2+甜度>=1+芦苇",
+            description: `
+三围：75饱食，8血，33理智
+保质期：15天
+
+红的透亮，色如玛瑙，软而不烂，肥而不腻。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "黄油",
+            image: "黄油.png",
+            code: "butter",
+            recipe: "乳制品>=4",
+            description: `
+三围：25饱食，40血，0理智
+保质期：40天
+
+当你很需要黄油时，何不自己精炼一锅呢？
+
+注意，虽然这黄油是锅里出来的，但并不是料理。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "番茄炒蛋",
+            image: "番茄炒蛋.png",
+            code: "ndnr_tomato_egg",
+            recipe: "蛋>=2+番茄>=2",
+            description: `
+三围：75饱食，40血，5理智
+保质期：8天
+
+料理入门的第一道菜！
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "菠萝包",
+            image: "菠萝包.png",
+            code: "ndnr_pineapplebun",
+            recipe: "蛋>=2+黄油+乳制品>=1",
+            description: `
+三围：37.5饱食，40血，5理智
+保质期：20天
+
+菠萝包里没有菠萝。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "哈根达斯",
+            image: "哈根达斯.png",
+            code: "ndnr_haagendazs",
+            recipe: "黄油+乳制品+冰+蜂王浆",
+            description: `
+三围：12.5饱食，100血，50理智
+保质期：2天
+
+玩家吃了会获得舒缓茶的精神回复效果，非玩家生物吃了会受到5层冰冻效果。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "红伞伞炒饭",
+            image: "红伞伞炒饭.png",
+            code: "ndnr_stewedmushroom",
+            recipe: "红蘑菇*3+肉",
+            description: `
+三围：37.5饱食，-40血，-15理智
+保质期：10天
+
+玩家食用后会保持半天的零理智状态，效果结束后理智值恢复
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "烧麦",
+            image: "烧麦.png",
+            code: "ndnr_steamedporkdumplings",
+            recipe: "肉+胡萝卜+玉米+蛋",
+            description: `
+三围：37.5饱食，3血，5理智
+保质期：6天
+
+用来充饥再合适不过了。
+
+一次收获两个。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "椰子鸡",
+            image: "椰子鸡.png",
+            code: "ndnr_coconutchicken",
+            recipe: "椰子+鸡腿*2+胡萝卜",
+            description: `
+三围：60饱食，20血，5理智
+保质期：6天
+
+这是哪里的特色菜
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "毛蛋",
+            image: "毛蛋.png",
+            code: "ndnr_coconutchicken",
+            recipe: "孵化中的高鸟蛋+芦苇*3",
+            description: `
+三围：25饱食，8血，-15理智
+保质期：20天
+
+一道鸡蛋里挑骨头的黑暗料理。
+猪人吃了黑暗料理会发疯。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "虾扯蛋",
+            image: "虾扯蛋.png",
+            code: "ndnr_shrimppullegg",
+            recipe: "龙虾+蛋>=2+冰",
+            description: `
+三围：37.5饱食，60血，33理智
+保质期：6天
+
+这不瞎扯淡呢么？
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "馄饨",
+            image: "馄饨.png",
+            code: "ndnr_wonton",
+            recipe: "蛋+冰+干海带+肉",
+            description: `
+三围：37.5饱食，40血，33理智
+保质期：15天
+
+在你们那，它叫馄饨还是饺子？
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "猫屎咖啡",
+            image: "猫屎咖啡.png",
+            code: "ndnr_kopiluwak",
+            recipe: "猫屎*3+甜度 | 猫屎*4",
+            description: `
+三围：0饱食，0血，-15理智
+保质期：10天
+
+食用者获得咖啡（仅玩家）和蘑菇慕斯的buff效果
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "泡芙",
+            image: "泡芙.png",
+            code: "ndnr_puff",
+            recipe: "蛋+乳制品>=2+甜度>=1",
+            description: `
+三围：37.5饱食，40血，33理智
+保质期：6天
+
+源自意大利的零食。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "酸奶",
+            image: "酸奶.png",
+            code: "ndnr_yogurt",
+            recipe: "水果+乳制品>=2+甜度>=1",
+            description: `
+三围：20饱食，40血，50理智
+保质期：8天
+
+牛奶的好去处。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "大海捞珍",
+            image: "大海捞珍.png",
+            code: "ndnr_seatreasure",
+            recipe: "龙虾+鱼肉>=1+瑶柱*2",
+            description: `
+三围：75饱食，100血，50理智
+保质期：6天
+
+这料理非常滴珍贵，大佬先吃！
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "甜筒",
+            image: "甜筒.png",
+            code: "ndnr_icecream",
+            recipe: "乳制品+蛋+冰+甜度>=1",
+            description: `
+三围：12.5饱食，8血，15理智
+保质期：1天
+
+夏天能吃一个简直太幸福了，就是冻的头有点疼。
+
+一次收获两个。
+
+食用者会受到三层冰冻效果（蓝色猎犬死亡时效果为两层）
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "咖啡",
+            image: "咖啡.png",
+            code: "ndnr_coffee",
+            recipe: "烤咖啡豆*3+甜度>=1 | 烤咖啡豆*4",
+            description: `
+三围：9.375饱食，3血，-5理智
+保质期：10天
+
+食用后获得11/6倍移速，效果持续半天。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "药酒",
+            image: "药酒.png",
+            code: "dish_medicinalliquor",
+            recipe: "熊獾绒毛+冰+2填充",
+            description: `
+三围：9.375饱食，8血，10理智
+保质期：永久
+
+1. 8分钟内增加50%攻击力（仅限玩家）
+2. 不胜酒力的角色会晕倒一段时间，酒量一般的角色会晕呼呼一小段时间，酒量出奇的角色不会有醉酒反应。
+3. 猪人吃了会发疯
+
+特别鸣谢棱镜作者的授权！本模组与棱镜同时开启时，将调用棱镜的药酒食谱。
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "椰子汁",
+            image: "椰子汁.png",
+            code: "ndnr_coconutjuice",
+            recipe: "椰子+冰+蜂蜜+芦苇",
+            description: `
+三围：0饱食，1血，20理智
+保质期：3天
+
+回复中量精神，食用的10秒降低40温度。
+炎炎夏日就来一杯冰爽的椰子汁吧！
+            `,
+            tech: "烹饪锅"
+        }, {
+            name: "奶油丸子汤",
+            image: "奶油丸子汤.png",
+            code: "ndnr_creamballsoup",
+            recipe: "乳制品+肉+冰",
+            description: `
+三围：37.5饱食，20血，15理智
+保质期：10天
+
+充满着奶味的肉汤
+            `,
+            tech: "烹饪锅"
         }]
     }, {
         category: "物品",
@@ -239,6 +505,46 @@ Q弹可口的布丁。
 【耐久】
 1. 使用黑曜石可修复1/3耐久
 2. 耐久为0会破碎
+            `,
+            tech: "二本-工具"
+        },{
+            name: "合金斧",
+            image: "合金斧.png",
+            code: "ndnr_alloyaxe",
+            recipe: "木头*2+合金*2",
+            description: `
+【基础】
+可砍伐，2.5倍砍伐效率
+            `,
+            tech: "二本-工具"
+        },{
+            name: "合金鹤嘴锄",
+            image: "合金镐.png",
+            code: "ndnr_alloypickaxe",
+            recipe: "木头*2+合金*2",
+            description: `
+【基础】
+可开凿，2.5倍开凿效率。
+            `,
+            tech: "二本-工具"
+        },{
+            name: "合金铲子",
+            image: "合金铲.png",
+            code: "ndnr_alloyshovel",
+            recipe: "木头*2+合金*2",
+            description: `
+【基础】
+可挖掘。
+            `,
+            tech: "二本-工具"
+        },{
+            name: "合金锤",
+            image: "合金锤.png",
+            code: "ndnr_alloyhammer",
+            recipe: "采下的草*6+木头*2+合金*2",
+            description: `
+【基础】
+可锤砸。
             `,
             tech: "二本-工具"
         }]
