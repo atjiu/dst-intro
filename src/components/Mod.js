@@ -76,10 +76,16 @@ function Mod() {
         <div className="container">
             {
                 modData ? getItemsByCategory(modData).map(function (item) {
+                    let image;
+                    try {
+                        image = require(`../assets/${modData.info.folder}/images/${item.image}`);
+                    } catch (e) {
+                        console.error(`${item.name} image load fail!`)
+                    }
                     return (
                         <div className="card" key={`${item.name}${Date.now()}`}>
                             <div className="card-image-sm">
-                                <img src={require(`../assets/${modData.info.folder}/images/${item.image}`)} alt="" />
+                                <img src={image} alt="" />
                             </div>
                             <div className="card-body">
                                 <div className="table-description">

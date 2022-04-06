@@ -461,7 +461,7 @@ let data = [
         }, {
             name: "盗墓",
             code: "",
-            image: "动作图示/盗墓.png",
+            image: "动作图示1/盗墓.png",
             description: `
 | 对象 | 坟墓 |
 |---|---|
