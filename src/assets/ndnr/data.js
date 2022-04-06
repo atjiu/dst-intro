@@ -954,7 +954,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "椰子鸡",
             image: "椰子鸡.png",
             code: "ndnr_coconutchicken",
-            recipe: "椰子+鸡腿*2+胡萝卜",
+            recipe: "椰子+鸡腿*2+蔬菜",
             description: `
 三围：60饱食，20血，5理智
 保质期：6天
@@ -979,7 +979,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "虾扯蛋",
             image: "虾扯蛋.png",
             code: "ndnr_shrimppullegg",
-            recipe: "龙虾+蛋>=2+冰",
+            recipe: "龙虾+蛋>=2+填充",
             description: `
 三围：37.5饱食，60血，33理智
 保质期：6天
@@ -1008,7 +1008,7 @@ P.S 作者都不知道瑶柱是什么。
 三围：0饱食，0血，-15理智
 保质期：10天
 
-食用者获得咖啡（仅玩家）和蘑菇慕斯的buff效果
+食用者获得咖啡（仅玩家）和蘑菇蛋糕的buff效果
             `,
             tech: "烹饪锅"
         }, {
@@ -1108,7 +1108,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "奶油丸子汤",
             image: "奶油丸子汤.png",
             code: "ndnr_creamballsoup",
-            recipe: "乳制品+肉+冰",
+            recipe: "乳制品+肉+2填充",
             description: `
 三围：37.5饱食，20血，15理智
 保质期：10天
