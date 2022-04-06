@@ -8,9 +8,10 @@ function Mods() {
                 mods.map(function (mod) {
                     return (
                         <div className="card clickable" key={mod.name} onClick={() => {
-                            PubSub.publish('App Data', { modStatus: true, modsStatus: false});
+                            PubSub.publish('App Data', { modStatus: true, modsStatus: false, logStatus: false});
                             PubSub.publish('Header Data', { toolbarStatus: true });
                             PubSub.publish('Mod Data', {info: mod, modData: require(`../assets/${mod.folder}/data.js`).default});
+                            PubSub.publish('Log Data', {logs: require(`../assets/${mod.folder}/logs.js`).default});
                         }}>
                             <div className="card-image">
                                 <img src={require(`../assets/${mod.folder}/images/${mod.logo}`)} alt="" />

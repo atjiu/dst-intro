@@ -77,7 +77,7 @@ function Mod() {
             {
                 modData ? getItemsByCategory(modData).map(function (item) {
                     return (
-                        <div className="card" key={item.image}>
+                        <div className="card" key={`${item.name}${Date.now()}`}>
                             <div className="card-image-sm">
                                 <img src={require(`../assets/${modData.info.folder}/images/${item.image}`)} alt="" />
                             </div>
