@@ -782,7 +782,7 @@ let data = [
             name: "家常菜",
             image: "家常菜.png",
             code: "ndnr_chinesefood",
-            recipe: "肉>=1+蛋+奶+菜>=1",
+            recipe: "肉≥1+蛋+奶+菜≥1",
             description: `
 三围：110饱食，5血，30理智
 保质期：15天
@@ -839,7 +839,7 @@ let data = [
             name: "无花果布丁",
             image: "无花果布丁.png",
             code: "ndnr_figpudding",
-            recipe: "无花果+乳制品>=2+甜度>=1",
+            recipe: "无花果+乳制品≥2+甜度≥1",
             description: `
 三围：25饱食，40血，15理智
 保质期：6天
@@ -852,7 +852,7 @@ Q弹可口的布丁。
             name: "瑶柱汤",
             image: "瑶柱汤.png",
             code: "ndnr_scallopsoup",
-            recipe: "瑶柱*2+乳制品>=1+冰",
+            recipe: "瑶柱*2+乳制品≥1+冰",
             description: `
 三围：37.5饱食，40血，-5理智
 保质期：10天
@@ -866,7 +866,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "东坡肉",
             image: "东坡肉.png",
             code: "ndnr_dongpopork",
-            recipe: "大肉*2+甜度>=1+芦苇",
+            recipe: "大肉*2+甜度≥1+芦苇",
             description: `
 三围：75饱食，8血，33理智
 保质期：15天
@@ -878,7 +878,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "黄油",
             image: "黄油.png",
             code: "butter",
-            recipe: "乳制品>=4",
+            recipe: "乳制品≥4",
             description: `
 三围：25饱食，40血，0理智
 保质期：40天
@@ -892,7 +892,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "番茄炒蛋",
             image: "番茄炒蛋.png",
             code: "ndnr_tomato_egg",
-            recipe: "蛋>=2+番茄>=2",
+            recipe: "蛋≥2+番茄≥2",
             description: `
 三围：75饱食，40血，5理智
 保质期：8天
@@ -904,7 +904,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "菠萝包",
             image: "菠萝包.png",
             code: "ndnr_pineapplebun",
-            recipe: "蛋>=2+黄油+乳制品>=1",
+            recipe: "蛋≥2+黄油+乳制品≥1",
             description: `
 三围：37.5饱食，40血，5理智
 保质期：20天
@@ -979,7 +979,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "虾扯蛋",
             image: "虾扯蛋.png",
             code: "ndnr_shrimppullegg",
-            recipe: "龙虾+蛋>=2+填充",
+            recipe: "龙虾+蛋≥2+填充",
             description: `
 三围：37.5饱食，60血，33理智
 保质期：6天
@@ -1015,7 +1015,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "泡芙",
             image: "泡芙.png",
             code: "ndnr_puff",
-            recipe: "蛋+乳制品>=2+甜度>=1",
+            recipe: "蛋+乳制品≥2+甜度≥1",
             description: `
 三围：37.5饱食，40血，33理智
 保质期：6天
@@ -1027,7 +1027,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "酸奶",
             image: "酸奶.png",
             code: "ndnr_yogurt",
-            recipe: "水果+乳制品>=2+甜度>=1",
+            recipe: "水果+乳制品≥2+甜度≥1",
             description: `
 三围：20饱食，40血，50理智
 保质期：8天
@@ -1039,7 +1039,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "大海捞珍",
             image: "大海捞珍.png",
             code: "ndnr_seatreasure",
-            recipe: "龙虾+鱼肉>=1+瑶柱*2",
+            recipe: "龙虾+鱼肉≥1+瑶柱*2",
             description: `
 三围：75饱食，100血，50理智
 保质期：6天
@@ -1051,7 +1051,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "甜筒",
             image: "甜筒.png",
             code: "ndnr_icecream",
-            recipe: "乳制品+蛋+冰+甜度>=1",
+            recipe: "乳制品+蛋+冰+甜度≥1",
             description: `
 三围：12.5饱食，8血，15理智
 保质期：1天
@@ -1067,7 +1067,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "咖啡",
             image: "咖啡.png",
             code: "ndnr_coffee",
-            recipe: "烤咖啡豆*3+甜度>=1 | 烤咖啡豆*4",
+            recipe: "烤咖啡豆*3+甜度≥1 | 烤咖啡豆*4",
             description: `
 三围：9.375饱食，3血，-5理智
 保质期：10天
