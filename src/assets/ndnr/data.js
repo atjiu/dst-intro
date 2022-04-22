@@ -1174,7 +1174,7 @@ P.S 作者都不知道瑶柱是什么。
             image: "牛奶.png",
             code: "ndnr_milk",
             fresh: "6天",
-            foodtype: "GENERIC",
+            foodtype: "1乳制品度",
             recipe: "",
             description: `
 | 饱食 | 理智 | 生命 |
@@ -1194,7 +1194,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             image: "鹿奶.png",
             code: "ndnr_ice_milk",
             fresh: "6天",
-            foodtype: "GENERIC",
+            foodtype: "1乳制品度",
             recipe: "",
             description: `
 | 饱食 | 理智 | 生命 |
@@ -1218,6 +1218,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             image: "龙心.png",
             code: "ndnr_dragoonheart",
             fresh: "10天",
+            foodtype: "1肉度",
             recipe: "",
             description: `
 | 饱食 | 理智 | 生命 |
@@ -1225,7 +1226,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
 | 25 | -10 | 11 |
 
 【获取】
-击杀龙蝇必定掉落1个；岩浆虫死亡有10%的概率掉落1个。  
+击杀龙蝇必定掉落1个岩浆虫；死亡有10%的概率掉落1个。  
 
 【食用】
 玩家食用后拥有龙的力量，攻击力+20%，效果持续0.5天。
@@ -1240,6 +1241,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             image: "瑶柱.png",
             code: "ndnr_scallop",
             fresh: "6天",
+            foodtype: "0.5肉度、0.5鱼度",
             recipe: "",
             description: `
 | 饱食 | 理智 | 生命 |
@@ -1255,6 +1257,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             image: "烤瑶柱.png",
             code: "ndnr_scallop_cooked",
             fresh: "6天",
+            foodtype: "0.5肉度、0.5鱼度",
             recipe: "",
             description: `
 | 饱食 | 理智 | 生命 |
@@ -1263,6 +1266,149 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
 
 【获取】
 瑶柱烤制获得。  
+            `,
+            tech: ""
+        }, {
+            name: "咖啡豆",
+            image: "咖啡豆.png",
+            code: "ndnr_coffeebeans",
+            fresh: "6天",
+            foodtype: "0.5果度",
+            recipe: "",
+            description: `
+| 饱食 | 理智 | 生命 |
+| --- | --- | --- |
+| 9.375 | 0 | 0 |
+
+【获取】
+咖啡树采摘。
+            `,
+            tech: ""
+        }, {
+            name: "烘焙咖啡豆",
+            image: "烤咖啡豆.png",
+            code: "ndnr_coffeebeans_cooked",
+            fresh: "15天",
+            foodtype: "1果度",
+            recipe: "",
+            description: `
+| 饱食 | 理智 | 生命 |
+| --- | --- | --- |
+| 9.375 | -5 | 0 |
+
+【获取】
+烤制咖啡豆获得。是烹饪咖啡的必备食材。
+            `,
+            tech: ""
+        }, {
+            name: "椰子",
+            image: "椰子.png",
+            code: "ndnr_coconut",
+            fresh: "20天",
+            foodtype: "1不可食用度",
+            recipe: "",
+            description: `
+大风的天，千万不要站在椰子树底下，因为当你站在椰子树下...
+
+【获取】
+砍伐椰子树获得。
+可种植为椰树树苗。
+使用锤子可以打开，获得分成两半的椰子\*2。
+            `,
+            tech: ""
+        }, {
+            name: "分成两半的椰子",
+            image: "分成两半的椰子.png",
+            code: "ndnr_coconut_halved",
+            fresh: "10天",
+            foodtype: "1果度",
+            recipe: "",
+            description: `
+| 饱食 | 理智 | 生命 |
+| --- | --- | --- |
+| 4.6875 | 0 | 1 |
+
+砸人者终被砸。
+【获取】
+用锤子打开椰子获得。
+            `,
+            tech: ""
+        }, {
+            name: "烤椰子",
+            image: "烤熟的椰子.png",
+            code: "ndnr_coconut_cooked",
+            fresh: "10天",
+            foodtype: "1果度",
+            recipe: "",
+            description: `
+| 饱食 | 理智 | 生命 |
+| --- | --- | --- |
+| 9.375 | 0 | 1 |
+
+【获取】
+由分成两半的椰子烤制获得。
+            `,
+            tech: ""
+        }, {
+            name: "岩浆虫卵",
+            image: "岩浆虫卵.png",
+            code: "lavae_egg",
+            fresh: "",
+            foodtype: "4蛋度",
+            recipe: "",
+            description: `
+【描述】
+龙蝇死亡有1/3概率掉落，是龙心灌蛋的必备食材。
+（不出只是因为脸黑）
+            `,
+            tech: ""
+        }, {
+            name: "采下的芦苇",
+            image: "芦苇.png",
+            code: "cutreeds",
+            fresh: "",
+            foodtype: "1不可食用度",
+            recipe: "",
+            description: `
+【描述】
+本模组中可入锅，是椰子汁的必备原料。
+            `,
+            tech: ""
+        }, {
+            name: "蛇",
+            image: "蛇.png",
+            code: "ndnr_snake",
+            fresh: "10天",
+            foodtype: "1不可食用度",
+            recipe: "",
+            description: `
+【描述】
+本模组中可入锅，是蛇酒的必备原料。
+            `,
+            tech: ""
+        }, {
+            name: "毛簇",
+            image: "毛簇.png",
+            code: "ndnr_sfurtuftnake",
+            fresh: "",
+            foodtype: "1不可食用度",
+            recipe: "",
+            description: `
+【描述】
+本模组及《棱镜》中可入锅，是药酒的必备原料。
+感谢梧大及其授权。
+            `,
+            tech: ""
+        }, {
+            name: "猫屎",
+            image: "blank.png",
+            code: "ndnr_catpoop",
+            fresh: "",
+            foodtype: "1不可食用度",
+            recipe: "",
+            description: `
+【描述】
+给予浣猫一个咖啡豆，在半天随机时间内会拉出一个猫屎。
             `,
             tech: ""
         }]
