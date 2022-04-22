@@ -1364,14 +1364,14 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             tech: ""
         }, {
             name: "采下的芦苇",
-            image: "芦苇.png",
+            image: "原版贴图/芦苇.png",
             code: "cutreeds",
             fresh: "",
             foodtype: "1不可食用度",
             recipe: "",
             description: `
 【描述】
-本模组中可入锅，是椰子汁的必备原料。
+本模组中可入锅。
             `,
             tech: ""
         }, {
@@ -1388,7 +1388,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             tech: ""
         }, {
             name: "毛簇",
-            image: "毛簇.png",
+            image: "原版贴图/毛簇.png",
             code: "ndnr_sfurtuftnake",
             fresh: "",
             foodtype: "1不可食用度",
