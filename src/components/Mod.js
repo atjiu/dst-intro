@@ -107,6 +107,13 @@ function Mod() {
                                         </div> : null
                                 }
                                 {
+                                    item.fresh ?
+                                        <div className="table-description">
+                                            <div><b>保质期</b></div>
+                                            <div>{item.fresh}</div>
+                                        </div> : null
+                                }
+                                {
                                     item.tech ?
                                         <div className="table-description">
                                             <div><b>科技</b></div>
