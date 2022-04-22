@@ -2488,7 +2488,7 @@ PS: 点燃椰树守卫会有好事发生。
             tech: ""
         }, {
             name: "查理卫士",
-            image: "",
+            image: "原版贴图/Terrorbeak.png",
             code: "ndnr_nightmarebeak",
             recipe: "",
             description: `
@@ -2526,7 +2526,7 @@ PS: 点燃椰树守卫会有好事发生。
             `
         }, {
             name: "圆石",
-            image: "",
+            image: "ndnr_roughrock.png",
             code: "ndnr_roughrock",
             recipe: "",
             description: `
