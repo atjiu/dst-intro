@@ -979,7 +979,7 @@ P.S 作者都不知道瑶柱是什么。
         }, {
             name: "毛蛋",
             image: "毛蛋.png",
-            code: "ndnr_coconutchicken",
+            code: "ndnr_balut",
             recipe: "孵化中的高鸟蛋+芦苇*3",
             fresh: "20天",
             description: `
