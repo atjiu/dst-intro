@@ -798,6 +798,7 @@ let data = [
             code: "ndnr_chinesefood",
             recipe: "肉≥1+蛋+奶+菜≥1",
             fresh: "15天",
+            foodtype: "GOODIES",
             description: `
 三围：110饱食，5血，30理智
 
@@ -810,6 +811,7 @@ let data = [
             code: "ndnr_mushroom_wine",
             recipe: "烤四色蘑菇",
             fresh: "永久",
+            foodtype: "GOODIES",
             description: `
 三围：0饱食，0血，-50理智
 
@@ -823,6 +825,7 @@ let data = [
             code: "ndnr_snakewine",
             recipe: "蛇+冰+2填充",
             fresh: "10天",
+            foodtype: "GOODIES",
             description: `
 三围：9.375饱食，8血，10理智
 
@@ -836,6 +839,7 @@ let data = [
             code: "ndnr_dragoonheartlavaeegg",
             recipe: "龙心+岩浆虫卵+2填充",
             fresh: "10天",
+            foodtype: "MEAT",
             description: `
 三围：75饱食，20血，5理智
 
@@ -855,6 +859,7 @@ let data = [
             code: "ndnr_figpudding",
             recipe: "无花果+乳制品≥2+甜度≥1",
             fresh: "6天",
+            foodtype: "GOODIES",
             description: `
 三围：25饱食，40血，15理智
 
@@ -868,6 +873,7 @@ Q弹可口的布丁。
             code: "ndnr_scallopsoup",
             recipe: "瑶柱*2+乳制品≥1+冰",
             fresh: "10天",
+            foodtype: "MEAT",
             description: `
 三围：37.5饱食，40血，-5理智
 
@@ -882,6 +888,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_dongpopork",
             recipe: "大肉*2+甜度≥1+芦苇",
             fresh: "15天",
+            foodtype: "MEAT",
             description: `
 三围：75饱食，8血，33理智
 
@@ -894,6 +901,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "butter",
             recipe: "乳制品≥4",
             fresh: "40天",
+            foodtype: "GENERIC",
             description: `
 三围：25饱食，40血，0理智
 
@@ -908,6 +916,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_tomato_egg",
             recipe: "蛋≥2+番茄≥2",
             fresh: "8天",
+            foodtype: "VEGGIE",
             description: `
 三围：75饱食，40血，5理智
 
@@ -920,6 +929,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_pineapplebun",
             recipe: "蛋≥2+黄油+乳制品≥1",
             fresh: "20天",
+            foodtype: "GOODIES",
             description: `
 三围：37.5饱食，40血，5理智
 
@@ -932,6 +942,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_haagendazs",
             recipe: "黄油+乳制品+冰+蜂王浆",
             fresh: "2天",
+            foodtype: "GOODIES",
             description: `
 三围：12.5饱食，100血，50理智
 
@@ -944,6 +955,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_stewedmushroom",
             recipe: "红蘑菇*3+肉",
             fresh: "10天",
+            foodtype: "MEAT",
             description: `
 三围：37.5饱食，-40血，-15理智
 
@@ -956,6 +968,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_steamedporkdumplings",
             recipe: "肉+胡萝卜+玉米+蛋",
             fresh: "6天",
+            foodtype: "MEAT",
             description: `
 三围：37.5饱食，3血，5理智
 
@@ -970,6 +983,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_coconutchicken",
             recipe: "椰子+鸡腿*2+蔬菜",
             fresh: "6天",
+            foodtype: "MEAT",
             description: `
 三围：60饱食，20血，5理智
 
@@ -982,6 +996,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_balut",
             recipe: "孵化中的高鸟蛋+芦苇*3",
             fresh: "20天",
+            foodtype: "MEAT",
             description: `
 三围：25饱食，8血，-15理智
 
@@ -995,6 +1010,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_shrimppullegg",
             recipe: "龙虾+蛋≥2+填充",
             fresh: "6天",
+            foodtype: "MEAT",
             description: `
 三围：37.5饱食，60血，33理智
 
@@ -1007,6 +1023,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_wonton",
             recipe: "蛋+冰+干海带+肉",
             fresh: "15天",
+            foodtype: "MEAT",
             description: `
 三围：37.5饱食，40血，33理智
 
@@ -1019,6 +1036,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_kopiluwak",
             recipe: "猫屎*3+甜度 | 猫屎*4",
             fresh: "10天",
+            foodtype: "VEGGIE",
             description: `
 三围：0饱食，0血，-15理智
 
@@ -1031,6 +1049,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_puff",
             recipe: "蛋+乳制品≥2+甜度≥1",
             fresh: "6天",
+            foodtype: "GOODIES",
             description: `
 三围：37.5饱食，40血，33理智
 
@@ -1043,6 +1062,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_yogurt",
             recipe: "水果+乳制品≥2+甜度≥1",
             fresh: "8天",
+            foodtype: "GOODIES",
             description: `
 三围：20饱食，40血，50理智
 
@@ -1055,6 +1075,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_seatreasure",
             recipe: "龙虾+鱼肉≥1+瑶柱*2",
             fresh: "6天",
+            foodtype: "MEAT",
             description: `
 三围：75饱食，100血，50理智
 
@@ -1067,6 +1088,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_icecream",
             recipe: "乳制品+蛋+冰+甜度≥1",
             fresh: "1天",
+            foodtype: "GOODIES",
             description: `
 三围：12.5饱食，8血，15理智
 
@@ -1083,6 +1105,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_coffee",
             recipe: "烤咖啡豆*3+甜度≥1 | 烤咖啡豆*4",
             fresh: "10天",
+            foodtype: "GENERIC",
             description: `
 三围：9.375饱食，3血，-5理智
 
@@ -1095,6 +1118,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "dish_medicinalliquor",
             recipe: "熊獾绒毛+冰+2填充",
             fresh: "永久",
+            foodtype: "GOODIES",
             description: `
 三围：9.375饱食，8血，10理智
 
@@ -1111,6 +1135,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_coconutjuice",
             recipe: "椰子+冰+蜂蜜+芦苇",
             fresh: "3天",
+            foodtype: "GOODIES",
             description: `
 三围：0饱食，1血，20理智
 
@@ -1124,6 +1149,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_creamballsoup",
             recipe: "乳制品+肉+2填充",
             fresh: "10天",
+            foodtype: "MEAT",
             description: `
 三围：37.5饱食，20血，15理智
 
@@ -1136,6 +1162,7 @@ P.S 作者都不知道瑶柱是什么。
             code: "ndnr_caviar",
             recipe: "鱼子*3+蔬菜",
             fresh: "10天",
+            foodtype: "MEAT",
             description: `
 三围：12.5饱食，3血，33理智
 
@@ -1147,6 +1174,7 @@ P.S 作者都不知道瑶柱是什么。
             image: "牛奶.png",
             code: "ndnr_milk",
             fresh: "6天",
+            foodtype: "GENERIC",
             recipe: "",
             description: `
 | 饱食 | 理智 | 生命 |
@@ -1166,6 +1194,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             image: "鹿奶.png",
             code: "ndnr_ice_milk",
             fresh: "6天",
+            foodtype: "GENERIC",
             recipe: "",
             description: `
 | 饱食 | 理智 | 生命 |
