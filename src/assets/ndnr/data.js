@@ -1122,7 +1122,7 @@ P.S 作者都不知道瑶柱是什么。
             name: "大海捞珍",
             image: "大海捞珍.png",
             code: "ndnr_seatreasure",
-            recipe: "龙虾或玻璃龙虾+鱼度≥1+瑶柱\*2",
+            recipe: "龙虾或玻璃龙虾+鱼度≥1+（烤）瑶柱\*2",
             fresh: "6天",
             foodtype: "MEAT",
             description: `
