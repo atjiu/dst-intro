@@ -157,15 +157,24 @@ code {
   padding: 5px 10px;
 }
 
-.toolbar select,input {
+.red {
+  color: red;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: row;
+}
+.form-control select,input,button {
+  height: 2rem;
+}
+.form-control select,button {
+  width: 25%;
+}
+.form-control select,input {
   border-radius: 5px;
   padding: 5px;
 }
-
-.toolbar input {
-  flex:1;
-}
-
-.red {
-  color: red;
+.form-control input {
+  width: 50%;
 }
