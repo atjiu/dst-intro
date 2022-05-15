@@ -22,7 +22,7 @@ function Toolbar() {
         }
         setToolbarData({ ...toolbarData, logStatus: false });
       }}>&lt;</div>
-      <select onChange={e => {
+      <select style={{height: "2rem"}} onChange={e => {
         PubSub.publish('Category Change', { category: e.target.value });
       }}>
         <option key="全部" value="">全部</option>
@@ -32,7 +32,7 @@ function Toolbar() {
           }): null
         }
       </select>
-      <input type="search" className="" onKeyDown={e => {
+      <input style={{height: "2rem"}} type="search" className="" onKeyDown={e => {
         if (e.keyCode === 13) {
           PubSub.publish('Search', { keyword: e.target.value });
         }
