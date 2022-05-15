@@ -22,25 +22,27 @@ function Toolbar() {
         }
         setToolbarData({ ...toolbarData, logStatus: false });
       }}>&lt;</div>
-      <select style={{height: "2rem"}} onChange={e => {
-        PubSub.publish('Category Change', { category: e.target.value });
-      }}>
-        <option key="全部" value="">全部</option>
-        {
-          toolbarData.categories ? toolbarData.categories.map(function (category) {
-            return (<option key={category} value={ category }>{ category }</option>)
-          }): null
-        }
-      </select>
-      <input style={{height: "2rem"}} type="search" className="" onKeyDown={e => {
-        if (e.keyCode === 13) {
-          PubSub.publish('Search', { keyword: e.target.value });
-        }
-      }} defaultValue="" placeholder="搜点啥~" />
-      <button onClick={() => {
-        setToolbarData({...toolbarData, logStatus: true})
-        PubSub.publish('App Data', { modStatus: false, modsStatus: false, logStatus: true });
-      }}>更新日志</button>
+      <div className="form-control">
+        <select onChange={e => {
+          PubSub.publish('Category Change', { category: e.target.value });
+        }}>
+          <option key="全部" value="">全部</option>
+          {
+            toolbarData.categories ? toolbarData.categories.map(function (category) {
+              return (<option key={category} value={ category }>{ category }</option>)
+            }): null
+          }
+        </select>
+        <input type="search" className="" onKeyDown={e => {
+          if (e.keyCode === 13) {
+            PubSub.publish('Search', { keyword: e.target.value });
+          }
+        }} defaultValue="" placeholder="搜点啥~" />
+        <button onClick={() => {
+          setToolbarData({...toolbarData, logStatus: true})
+          PubSub.publish('App Data', { modStatus: false, modsStatus: false, logStatus: true });
+        }}>更新日志</button>
+      </div>
     </div>
   );
 }
