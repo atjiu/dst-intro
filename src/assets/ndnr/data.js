@@ -1935,6 +1935,44 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
 成对生成的堕落虫洞会自动连接起来，传送效果及消耗同原版虫洞。
             `,
             tech: ""
+        }, {
+            name: "蟹钳",
+            image: "ndnr_quackenbeak.png",
+            code: "ndnr_quackenbeak",
+            recipe: "",
+            description: `
+【获取】
+击杀帝王蟹掉落蟹钳\*1。
+
+【作用】
+可用于制作油井钻子。
+            `,
+            tech: ""
+        }, {
+            name: "焦油浮膜",
+            image: "ndnr_tar_pool.png",
+            code: "ndnr_tar_pool",
+            recipe: "",
+            description: `
+【来源】
+油井钻子部署在非浅海的海面生成。
+【作用】
+在建造焦油提取器后可开采焦油。
+            `,
+            tech: ""
+        }, {
+            name: "焦油",
+            image: "ndnr_tar.png",
+            code: "ndnr_tar",
+            recipe: "",
+            description: `
+【来源】
+焦油提取器在焦油浮膜上开采获得。
+【作用】
+1. 是制作柏油路的主要原料；
+2. 可作为燃料，燃料值是木头的4倍（同木板）。
+            `,
+            tech: ""
         }]
     }, {
         category: "装备",
@@ -2858,21 +2896,20 @@ PS: 点燃椰树守卫会有好事发生。
             name: "彩虹护符",
             image: "彩虹护符.png",
             code: "ndnr_opalpreciousamulet",
-            recipe: "彩虹宝石\*1+铥矿\*4+噩梦燃料\*10",
+            recipe: "彩虹宝石\*1+铥矿\*2+噩梦燃料\*4",
             description: `
 【获取】
 完成相应悬赏令任务可获得蓝图。
 
 【功能】
-一个噩梦燃料增加4%-5%。
+一个噩梦燃料增加17~18%的耐久。
 佩戴时，每隔一个时段可消耗2%耐久回复5生命值。
-佩戴时，可自动拾取附近地面整组物品，每次拾取消耗2%耐久。
-佩戴时，制作物品仅消耗一半材料，每次制作消耗20%耐久。
 佩戴时，移速提高20%，并持续发光，满耐久可提供一天的该功能。
+佩戴时，采摘和收获动作会快速完成。
 
 分解不返还宝石。
             `,
-            tech: "蓝图-食物"
+            tech: "蓝图-魔法"
         }, {
             name: "蟹奶奶蜂箱",
             image: "Hermit_Bee_Box.png",
@@ -3041,6 +3078,38 @@ PS: 点燃椰树守卫会有好事发生。
 注：随距离的拉远，耕地水分增长速度可能感觉更慢，但只要在范围内总能照料到的。
             `,
             tech: "炼金引擎-建筑/耕种/夏季"
+        }, {
+            name: "油井钻子",
+            image: "ndnr_quackendrill_item.png",
+            code: "ndnr_quackendrill_item",
+            recipe: "蟹钳\*1+齿轮\*1+电子元件\*2",
+            description: `
+【介绍】
+可部署在非浅海的海面上，钻探出焦油浮膜。部署后油井钻子被消耗。
+            `,
+            tech: "炼金引擎-工具"
+        }, {
+            name: "焦油提取器",
+            image: "ndnr_tar_extractor.png",
+            code: "ndnr_tar_extractor",
+            recipe: "椰子\*2+电子元件\*4+石砖\*4",
+            description: `
+【介绍】
+可建造在焦油浮膜上，进行焦油的开采。
+满燃料可工作2天，工作4个时段可产生焦油\*1。
+            `,
+            tech: "炼金引擎-建筑"
+        }, {
+            name: "柏油路",
+            image: "turf_ndnr_asphalt.png",
+            code: "turf_ndnr_asphalt",
+            recipe: "焦油\*1+石头\*3",
+            description: `
+【介绍】
+工业时代的杰出产物。
+每次制作获得4个，行走在上面+50%移速。
+            `,
+            tech: "炼金引擎-装饰"
         }, {
             name: "腐化魔杖",
             image: "腐化魔杖.png",
