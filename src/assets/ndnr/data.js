@@ -1673,6 +1673,27 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             `,
             tech: ""
         }, {
+            name: "魔力泉水",
+            image: "魔力泉水.png",
+            code: "ndnr_waterdrop",
+            fresh: "",
+            foodtype: "VEGGIE",
+            recipe: "",
+            description: `
+| 饱食 | 理智 | 生命 |
+| --- | --- | --- |
+| 450 | 150 | 300 |
+
+【获取】
+采摘玻璃绿洲获得。
+
+【作用】
+1. 制作生命水球。
+2. 种植为魔力花。
+
+            `,
+            tech: ""
+        }, {
             name: "岩浆虫卵",
             image: "岩浆虫卵.png",
             code: "lavae_egg",
@@ -2509,6 +2530,9 @@ wx-78可以给自己抹黄油（拿起黄油对人物使用)，移速+25%，效�
             code: "ndnr_floweroflife",
             recipe: "",
             description: `
+【获取】
+魔力泉水种植生成魔力花。
+
 【介绍】
 1. 站在旁边会扣饱食度回san(效果叠加)，同时在周围不断生成花
 2. 可作祟复活，冷却一天，代价同重生护符
@@ -2786,7 +2810,7 @@ PS: 点燃椰树守卫会有好事发生。
             `,
             tech: "衣物"
         }, {
-            name: "蛇皮地板",
+            name: "蛇皮地毯",
             image: "blank.png",
             code: "turf_ndnr_snakeskinfloor",
             recipe: "蛇皮\*2+牛毛\*1",

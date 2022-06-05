@@ -1,6 +1,6 @@
 let version = [{
-    title: "常规更新",
-    version: "",
+    title: "蛇皮",
+    version: "4.1.6",
     date: "2022-06-05",
     description: `
     1. 修复吃一个料理有两种buff时，界面上只显示一个buff的图标
