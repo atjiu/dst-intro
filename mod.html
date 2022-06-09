@@ -73,7 +73,7 @@
             let modtpl = _.template(modtpls.innerHTML);
             let moddata = [];
 
-            fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/data/" + modname.mod + "/data.js")
+            fetch("https://tomoya92.github.io/dst-intro/data/" + modname.mod + "/data.js")
                 .then(function(response){
                     return response.text();
                 })

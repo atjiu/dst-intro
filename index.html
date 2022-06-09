@@ -36,7 +36,7 @@
             let modstpl = _.template(modstpls.innerHTML);
             let loading = document.querySelector(".spinner")
 
-            fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/data/mods.json")
+            fetch("https://tomoya92.github.io/dst-intro/data/mods.json")
                 .then(function(response){
                     return response.json();
                 })
