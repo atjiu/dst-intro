@@ -31,6 +31,8 @@
         </script>
     </section>
 
+    <div class="spinner"></div>
+
     <script src="./assets/underscore.min.js"></script>
     <script src="./assets/marked.min.js"></script>
     <script src="./assets/app.js"></script>
@@ -43,12 +45,14 @@
             let modname = qs(location.search);
             let logtpls = document.getElementById('logtpls');
             let logtpl = _.template(logtpls.innerHTML);
+            let loading = document.querySelector(".spinner");
 
             fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/data/" + modname.mod + "/logs.js")
                 .then(function(response){
                     return response.text();
                 })
                 .then(function(data){
+                    loading.style.display = "none";
                     let jsdata = eval(data);
 
                     document.getElementById("section").innerHTML = logtpl({

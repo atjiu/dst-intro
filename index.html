@@ -16,7 +16,7 @@
     <section id="section"></section>
     <script type="text/template" id="modstpls">
         <% _.each(mods, function(v){ %>
-        <div class="container" onclick="javascript:location.href='/mod.html?mod=<%=v.folder%>'">
+        <div class="container" onclick="javascript:location.href='/dst-intro/mod.html?mod=<%=v.folder%>'">
             <img width="72" height="72" src="./data/ndnr/images/<%=v.logo%>">
             <div class="info">
                 <p>名称：<%=v.name%></p>
@@ -27,16 +27,21 @@
         <% }) %>
     </script>
 
+    <div class="spinner"></div>
+
     <script src="./assets/underscore.min.js"></script>
     <script>
         (function(){
             let modstpls = document.getElementById('modstpls');
             let modstpl = _.template(modstpls.innerHTML);
+            let loading = document.querySelector(".spinner")
+
             fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/data/mods.json")
                 .then(function(response){
                     return response.json();
                 })
                 .then(function(data){
+                    loading.style.display = "none";
                     document.getElementById("section").innerHTML = modstpl({
                         mods: data
                     });

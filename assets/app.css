@@ -26,6 +26,38 @@ p {
     font-size: 0.89rem;
 }
 
+.spinner {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(17, 155, 13);
+    position: absolute;
+    top: 30%;
+    left: 45%;
+
+    margin: 100px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+  }
+
+  @-webkit-keyframes sk-rotateplane {
+    0% { -webkit-transform: perspective(120px) }
+    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+  }
+
+  @keyframes sk-rotateplane {
+    0% {
+      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+    } 50% {
+      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    } 100% {
+      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+  }
+
 .container {
     background-color: #fff;
     display: flex;
@@ -93,6 +125,8 @@ p {
 .tools {
     display: flex;
     margin: 0 auto;
+    padding: 0 5px;
+    justify-content: space-between;
 }
 .tools select,
 input {
@@ -117,11 +151,11 @@ button {
 
 .tools select,
 button {
-    flex: 0 0 23%;
+    width: 25%;
 }
 
 .tools input {
-    flex: 0 0 50%;
+    width: 50%;
 }
 .red{
     color: #ff0000;
