@@ -32,7 +32,7 @@
         (function(){
             let modstpls = document.getElementById('modstpls');
             let modstpl = _.template(modstpls.innerHTML);
-            fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/assets/mods.json")
+            fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/data/mods.json")
                 .then(function(response){
                     return response.json();
                 })
