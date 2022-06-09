@@ -1,0 +1,137 @@
+html,
+body {
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+header {
+    padding: 1rem 0;
+    height: 80px;
+    text-align: center;
+    background-color: #095a7a;
+    color: #ccc;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+ol,ul {
+    padding-left: 1rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.89rem;
+}
+
+.container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+.container:last-child {
+    margin-bottom: 0;
+}
+
+.container .img {
+    width: 64px;
+    height: 64px;
+}
+
+.container .info {
+    margin-left: 10px;
+}
+
+.container .info .intro {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.info table {
+    border-spacing: 0;
+    max-width: 100%;
+    overflow: auto;
+    margin-top: 5px;
+}
+
+.info table th {
+    text-align: left;
+}
+
+.info table td {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    padding: 5px;
+}
+
+.info table th {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    padding: 5px;
+}
+
+.info table th:last-child {
+    border-right: 1px solid #ccc;
+}
+
+.info table td:last-child {
+    border-right: 1px solid #ccc;
+}
+
+.info table tr:last-child td {
+    border-bottom: 1px solid #ccc;
+}
+
+.tools {
+    display: flex;
+    margin: 0 auto;
+}
+.tools select,
+input {
+    margin-right: 2px;
+}
+.tools select,
+input,
+button {
+    height: 2rem;
+    border-radius: 5px;
+    border: 0;
+}
+.tools select:focus {
+    outline: none;
+}
+.tools input:focus {
+    outline: none;
+}
+.tools button:focus {
+    outline: none;
+}
+
+.tools select,
+button {
+    flex: 0 0 23%;
+}
+
+.tools input {
+    flex: 0 0 50%;
+}
+.red{
+    color: #ff0000;
+}
+
+.log-info {
+    font-size: 0.8rem;
+}
+
+.log-info p {
+    font-size: 0.8rem;
+    font-weight: 700;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="./assets/app.css">
+    <title>饥荒模组介绍页</title>
+</head>
+<body>
+    <header style="height:36px;">
+        <h2>饥荒模组介绍页</h2>
+    </header>
+
+    <section id="section"></section>
+    <script type="text/template" id="modstpls">
+        <% _.each(mods, function(v){ %>
+        <div class="container" onclick="javascript:location.href='/mod.html?mod=<%=v.folder%>'">
+            <img width="72" height="72" src="./data/ndnr/images/<%=v.logo%>">
+            <div class="info">
+                <p>名称：<%=v.name%></p>
+                <p>作者：<%=v.author%></p>
+                <p class="intro">简介：<%=v.intro%></p>
+            </div>
+        </div>
+        <% }) %>
+    </script>
+
+    <script src="./assets/underscore.min.js"></script>
+    <script>
+        (function(){
+            let modstpls = document.getElementById('modstpls');
+            let modstpl = _.template(modstpls.innerHTML);
+            fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/assets/mods.json")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    document.getElementById("section").innerHTML = modstpl({
+                        mods: data
+                    });
+                })
+                .catch(function(err){
+                    console.log(err);
+                });
+        })()
+    </script>
+</body>
+</html>

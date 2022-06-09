@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/app.css">
+</head>
+<body>
+    <header>
+        <h2>饥荒模组介绍页</h2>
+
+        <div class="tools">
+            <select name="category" id="category"></select>
+            <input type="search" id="search" value="" placeholder="搜点啥~"/>
+            <button id="updatelog">更新日志</button>
+        </div>
+    </header>
+
+    <section id="section">
+        <script type="text/template" id="modtpls">
+            <% _.each(content, function(v){ %>
+            <div class="container">
+                <img class="img" src="./data/ndnr/images/<%=v.image%>">
+                <div class="info">
+                    <p>名称：<%=v.name%></p>
+                    <% if(v.code) { %>
+                        <p>代码：<%=v.code%></p>
+                    <% } %>
+                    <% if(v.recipe) { %>
+                        <p>配方：<%=v.recipe%></p>
+                    <% } %>
+                    <% if(v.foodtype) { %>
+                        <p>类型：<%=v.foodtype%></p>
+                    <% } %>
+                    <% if(v.fresh) { %>
+                        <p>保质：<%=v.fresh%></p>
+                    <% } %>
+                    <% if(v.tech) { %>
+                        <p>科技：<%=v.tech%></p>
+                    <% } %>
+                    <% if(v.description) { %>
+                        <p class="description">描述：<%=marked.parse(v.description)%></p>
+                    <% } %>
+                </div>
+            </div>
+            <% }) %>
+        </script>
+    </section>
+
+    <script src="./assets/underscore.min.js"></script>
+    <script src="./assets/marked.min.js"></script>
+    <script src="./assets/app.js"></script>
+    <script>
+
+        (function(){
+            // DEBUG
+            // document.write('<script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js" ><\/script><script>eruda.init();<\/script>')
+
+            let modname = qs(location.search);
+            let modtpls = document.getElementById('modtpls');
+            let sectionDom = document.getElementById("section");
+            let categoryDom = document.getElementById("category");
+            let searchDom = document.getElementById("search");
+            let updatelogDom = document.getElementById("updatelog");
+            let modtpl = _.template(modtpls.innerHTML);
+            let moddata = [];
+
+            fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/data/" + modname.mod + "/data.js")
+                .then(function(response){
+                    return response.text();
+                })
+                .then(function(data){
+                    let jsdata = eval(data);
+                    moddata = jsdata;
+
+                    sectionDom.innerHTML = modtpl({
+                        content: getAllChildren(jsdata)
+                    });
+
+                    addOptions("category", ["全部"]);
+                    addOptions("category", getAllCategory(jsdata));
+
+                })
+                .catch(function(err){
+                    console.log(err);
+                });
+
+            categoryDom.onchange = function(e){
+                let category = e.target.value;
+                sectionDom.innerHTML = "";
+                sectionDom.innerHTML = modtpl({
+                    content: getAllChildren(moddata, category)
+                });
+            };
+
+            searchDom.onkeypress = function(e) {
+                if (e.keyCode === 13){
+                    let search = e.target.value;
+                    sectionDom.innerHTML = "";
+                    sectionDom.innerHTML = modtpl({
+                        content: getAllChildren(moddata, categoryDom.value, search)
+                    });
+                }
+            };
+
+            updatelogDom.onclick = function(e) {
+                window.location.href = "/log.html?mod=" + modname.mod;
+            };
+        })()
+
+    </script>
+
+</body>
+</html>

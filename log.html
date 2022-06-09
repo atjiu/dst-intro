@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/app.css">
+</head>
+<body>
+    <header style="height:36px;">
+        <h2>饥荒模组介绍页</h2>
+    </header>
+
+    <section id="section">
+        <script type="text/template" id="logtpls">
+            <% _.each(content, function(v){ %>
+            <div class="container">
+                <div class="log-info">
+                    <p><b style="font-size:0.9rem;"><%=v.title%></b></p>
+                    <p>版本：<%=v.version%></p>
+                    <p>日期：<%=v.date%></p>
+                    <% if(v.description) { %>
+                        <p>描述：<%=marked.parse(v.description)%></p>
+                    <% } %>
+                </div>
+            </div>
+            <% }) %>
+        </script>
+    </section>
+
+    <script src="./assets/underscore.min.js"></script>
+    <script src="./assets/marked.min.js"></script>
+    <script src="./assets/app.js"></script>
+    <script>
+
+        (function(){
+            // DEBUG
+            // document.write('<script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js" ><\/script><script>eruda.init();<\/script>')
+
+            let modname = qs(location.search);
+            let logtpls = document.getElementById('logtpls');
+            let logtpl = _.template(logtpls.innerHTML);
+
+            fetch("https://raw.githubusercontent.com/tomoya92/dst-intro/master/data/" + modname.mod + "/logs.js")
+                .then(function(response){
+                    return response.text();
+                })
+                .then(function(data){
+                    let jsdata = eval(data);
+
+                    document.getElementById("section").innerHTML = logtpl({
+                        content: jsdata
+                    });
+
+                })
+                .catch(function(err){
+                    console.log(err);
+                });
+
+        })()
+
+    </script>
+
+</body>
+</html>
