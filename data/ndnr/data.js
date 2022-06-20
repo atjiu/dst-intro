@@ -2686,7 +2686,7 @@ PS: 点燃椰树守卫会有好事发生。
             name: "黑曜石斧",
             image: "黑曜石斧.png",
             code: "ndnr_obsidianaxe",
-            recipe: "斧子+龙心+黑曜石*2",
+            recipe: "斧子+龙心+黑曜石\*2",
             description: `
 【基础】
 可砍伐
@@ -2707,7 +2707,7 @@ PS: 点燃椰树守卫会有好事发生。
             name: "合金斧",
             image: "合金斧.png",
             code: "ndnr_alloyaxe",
-            recipe: "木头*2+合金*2",
+            recipe: "木头\*2+合金\*2",
             description: `
 【基础】
 可砍伐，2.5倍砍伐效率
@@ -2717,7 +2717,7 @@ PS: 点燃椰树守卫会有好事发生。
             name: "合金鹤嘴锄",
             image: "合金镐.png",
             code: "ndnr_alloypickaxe",
-            recipe: "木头*2+合金*2",
+            recipe: "木头\*2+合金\*2",
             description: `
 【基础】
 可开凿，2.5倍开凿效率。
@@ -2727,7 +2727,7 @@ PS: 点燃椰树守卫会有好事发生。
             name: "合金铲子",
             image: "合金铲.png",
             code: "ndnr_alloyshovel",
-            recipe: "木头*2+合金*2",
+            recipe: "木头\*2+合金\*2",
             description: `
 【基础】
 可挖掘。
@@ -2737,7 +2737,17 @@ PS: 点燃椰树守卫会有好事发生。
             name: "合金锤",
             image: "合金锤.png",
             code: "ndnr_alloyhammer",
-            recipe: "采下的草*6+木头*2+合金*2",
+            recipe: "采下的草\*6+木头\*2+合金\*2",
+            description: `
+【基础】
+可锤砸。
+            `,
+            tech: "二本-工具"
+        }, {
+            name: "合金园艺锄",
+            image: "ndnr_alloyhoe.png",
+            code: "ndnr_alloyhoe",
+            recipe: "木头\*2+合金\*2",
             description: `
 【基础】
 可锤砸。
