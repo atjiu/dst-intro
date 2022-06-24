@@ -494,7 +494,7 @@ P.S. 犀牛伤势恢复（CD结束）之前，攻击力减半、攻击频率翻�
         }, {
             name: "拔苗助长",
             code: "",
-            image: "blank.png",
+            image: "动作图示/拔苗助长.png",
             description: `
 【介绍】
 对种下的作物植株执行拔苗助长，可使植株直接进入下一生长阶段。
@@ -1635,7 +1635,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             tech: ""
         }, {
             name: "大豆种子",
-            image: "blank.png",
+            image: "ndnr_soybean_seeds.png",
             code: "ndnr_soybean_seeds",
             fresh: "40天",
             foodtype: "",
@@ -1812,7 +1812,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             tech: ""
         }, {
             name: "蛇皮",
-            image: "blank.png",
+            image: "ndnr_snakeskin.png",
             code: "ndnr_snakeskin",
             recipe: "",
             description: `
@@ -2320,7 +2320,7 @@ buff持续期间每2秒有1/15的概率闹肚子，扣除10饱食度和5精神�
             tech: ""
         }, {
             name: "友好果蝇",
-            image: "blank.png",
+            image: "原版贴图/友好果蝇.png",
             code: "friendlyfruitfly",
             recipe: "",
             description: `
@@ -2799,7 +2799,7 @@ PS: 点燃椰树守卫会有好事发生。
             tech: "治疗"
         }, {
             name: "蛇皮夹克",
-            image: "blank.png",
+            image: "ndnr_armor_snakeskin.png",
             code: "ndnr_armor_snakeskin",
             recipe: "蛇皮\*2+绳子\*2+骨头碎片\*2",
             description: `
@@ -2810,7 +2810,7 @@ PS: 点燃椰树守卫会有好事发生。
             tech: "衣物"
         }, {
             name: "蛇皮帽",
-            image: "blank.png",
+            image: "ndnr_snakeskinhat.png",
             code: "ndnr_snakeskinhat",
             recipe: "蛇皮\*1+草帽\*1+骨头碎片\*1",
             description: `
@@ -2821,7 +2821,7 @@ PS: 点燃椰树守卫会有好事发生。
             tech: "衣物"
         }, {
             name: "蛇皮地毯",
-            image: "blank.png",
+            image: "turf_ndnr_snakeskinfloor.png",
             code: "turf_ndnr_snakeskinfloor",
             recipe: "蛇皮\*2+牛毛\*1",
             description: `
