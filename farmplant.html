@@ -20,6 +20,19 @@
         li {
             padding: 5px;
         }
+        .pure-form label {
+            display: inline;
+            word-break: keep-all;
+        }
+        .bg-red {
+            background-color: #ff0000!important;
+        }
+        .bg-green {
+            background-color: #00ff00!important;
+        }
+        .bg-blue {
+            background-color: #0000ff!important;
+        }
     </style>
 </head>
 
@@ -38,7 +51,125 @@
                 <img src="./assets/images/fertilizer.png" class="pure-img" alt="fertilizer">
             </p>
         </details>
+        <details>
+            <summary>常见比例</summary>
+            <p>
+                <p>1:1</p>
+                <table class="pure-table pure-table-bordered">
+                    <tr>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-red">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                    </tr>
+                </table>
+                <p>1:2</p>
+                <table class="pure-table pure-table-bordered">
+                    <tr>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                    </tr>
+                </table>
+                <p>1:3</p>
+                <table class="pure-table pure-table-bordered">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                    </tr>
+                </table>
+                <p>1:1:1</p>
+                <table class="pure-table pure-table-bordered">
+                    <tr>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                        <td class="bg-red">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                        <td class="bg-green">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-blue">&nbsp;</td>
+                        <td class="bg-blue">&nbsp;</td>
+                        <td class="bg-blue">&nbsp;</td>
+                    </tr>
+                </table>
+            </p>
+        </details>
     </div>
+    <!-- <div class="container">
+        <form class="pure-form" onsubmit="return;">
+            <fieldset>
+                <legend>添加作物</legend>
+                <details>
+                    <summary>点击添加</summary>
+                    <p>
+                        <label for="farmPlantName">名字</label>
+                        <input type="text" id="farmPlantName" placeholder="作物名" />
+
+                        <label for="">季节</label>
+                        <label for="farmPlantSpring" class="pure-checkbox"><input type="checkbox" id="farmPlantSpring"> 春</label>
+                        <label for="farmPlantSummer" class="pure-checkbox"><input type="checkbox" id="farmPlantSummer"> 夏</label>
+                        <label for="farmPlantAutumn" class="pure-checkbox"><input type="checkbox" id="farmPlantAutumn"> 秋</label>
+                        <label for="farmPlantWinter" class="pure-checkbox"><input type="checkbox" id="farmPlantWinter"> 冬</label>
+
+                        <label for="farmPlantWater">耗水<small>(如：芦笋耗水为1)</small></label>
+                        <input type="number" id="farmPlantWater" placeholder="耗水" step="1" />
+
+                        <label for="farmPlantFertilizer1">催长剂<small>(恢复为正，消耗为负)</small></label>
+                        <input type="number" id="farmPlantFertilizer1" placeholder="催长剂" step="1" />
+
+                        <label for="farmPlantFertilizer2">粪肥<small>(恢复为正，消耗为负)</small></label>
+                        <input type="number" id="farmPlantFertilizer2" placeholder="粪肥" step="1" />
+
+                        <label for="farmPlantFertilizer3">堆肥<small>(恢复为正，消耗为负)</small></label>
+                        <input type="number" id="farmPlantFertilizer3" placeholder="堆肥" step="1" />
+                    </p>
+                </details>
+            </fieldset>
+        </form>
+    </div> -->
     <div class="container">
         <form class="pure-form" onsubmit="return;">
             <fieldset>
