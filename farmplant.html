@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>作物种植</title>
+    <link rel="stylesheet" href="./assets/pure.min.css">
+    <style>
+        .container {
+            margin: 0 auto;
+            padding: 10px;
+        }
+        details {
+            padding: 5px;
+            cursor: pointer;
+        }
+        li {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>作物种植</h1>
+        <details>
+            <summary>作物总结</summary>
+            <p>
+                <img src="./assets/images/farmplant.png" class="pure-img" alt="farmplant">
+            </p>
+        </details>
+        <details>
+            <summary>肥料总结</summary>
+            <p>
+                <img src="./assets/images/fertilizer.png" class="pure-img" alt="fertilizer">
+            </p>
+        </details>
+    </div>
+    <div class="container">
+        <form class="pure-form" onsubmit="return;">
+            <fieldset>
+                <legend>巨大计算器</legend>
+                <select name="season" id="season">
+                    <option value="">选择季节</option>
+                    <option value="spring">春</option>
+                    <option value="summer">夏</option>
+                    <option value="autumn">秋</option>
+                    <option value="winter">冬</option>
+                </select>
+                <button class="pure-button pure-button-default" type="button" id="calcBtn">计算</button>
+                <p id="plant"></p>
+                <div id="plantRatio" class="pure-menu" style="max-width:300px"></div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        (function () {
+            let data = [
+                { name: "芦笋", season: ["spring", "winter"], water: 1, fertilizer1: 1, fertilizer2: -2, fertilizer3: 1 },
+                { name: "胡萝卜", season: ["spring", "winter", "autumn"], water: 1, fertilizer1: -2, fertilizer2: 1, fertilizer3: 1 },
+                { name: "玉米", season: ["spring", "summer", "autumn"], water: 1, fertilizer1: 1, fertilizer2: -2, fertilizer3: 1 },
+                { name: "火龙果", season: ["spring", "summer"], water: 2, fertilizer1: 2, fertilizer2: 2, fertilizer3: -4 },
+                { name: "榴莲", season: ["spring"], water: 1, fertilizer1: 2, fertilizer2: -4, fertilizer3: 2 },
+                { name: "茄子", season: ["spring", "autumn"], water: 2, fertilizer1: 1, fertilizer2: 1, fertilizer3: -2 },
+                { name: "大蒜", season: ["spring", "winter", "summer", "autumn"], water: 1, fertilizer1: 2, fertilizer2: -4, fertilizer3: 2 },
+                { name: "洋葱", season: ["spring", "summer", "autumn"], water: 2, fertilizer1: -4, fertilizer2: 2, fertilizer3: 2 },
+                { name: "辣椒", season: ["summer", "autumn"], water: 1, fertilizer1: 2, fertilizer2: 2, fertilizer3: -4 },
+                { name: "石榴", season: ["spring", "summer"], water: 2, fertilizer1: -4, fertilizer2: 2, fertilizer3: 2 },
+                { name: "土豆", season: ["spring", "winter", "autumn"], water: 1, fertilizer1: 1, fertilizer2: 1, fertilizer3: -2 },
+                { name: "南瓜", season: ["autumn", "winter"], water: 2, fertilizer1: -2, fertilizer2: 1, fertilizer3: 1 },
+                { name: "番茄", season: ["spring", "summer", "autumn"], water: 3, fertilizer1: -1, fertilizer2: -1, fertilizer3: 2 },
+                { name: "西瓜", season: ["spring", "summer"], water: 3, fertilizer1: 2, fertilizer2: -1, fertilizer3: -1 },
+            ];
+
+            let seasonElement = document.getElementById('season');
+            let plantElement = document.getElementById('plant');
+            let calcBtn = document.getElementById('calcBtn');
+            let plantRatioElement = document.getElementById('plantRatio');
+
+            // ------------------------------------------------------------------------------------------------------------------------
+            // 初始化
+            initPlantCheckbox(data, false);
+            // ------------------------------------------------------------------------------------------------------------------------
+
+            function initPlantCheckbox(plants, checked) {
+                let labels = plants.map(function (item) {
+                    return checked ? `<label for="${item.name}"><input type="checkbox" id="${item.name}" /> ${item.name}</label>&nbsp;&nbsp;` : `<label for="${item.name}"><input type="checkbox" id="${item.name}" disabled /> ${item.name}</label>&nbsp;&nbsp;`;
+                });
+                plantElement.innerHTML = labels.join("");
+            }
+
+            function getPlantBySeason(season) {
+                if (season === "") return data;
+                return data.filter(function (item) {
+                    return item.season.indexOf(season) != -1;
+                });
+            }
+
+            function groupBy(arr, criteria) {
+                const newObj = arr.reduce(function (acc, currentValue) {
+                    if (!acc[currentValue[criteria]]) {
+                        acc[currentValue[criteria]] = [];
+                    }
+                    acc[currentValue[criteria]].push(currentValue);
+                    return acc;
+                }, {});
+                return newObj;
+            }
+
+            function calcRatio() {
+                let ratioArr = [];
+                let season = seasonElement.value;
+                let plants = getPlantBySeason(season);
+                let checkedPlants = plants.filter(function (item) {
+                    return document.getElementById(item.name).checked;
+                });
+                for (let i = 0; i < plants.length; i++) {
+                    for (let j = i; j < plants.length; j++) {
+                        for (let k = 1; k < 9; k++) {
+                            for (let l = 1; l < 9; l++) {
+                                if (k * plants[i].fertilizer1 + l * plants[j].fertilizer1 === 0 &&
+                                    k * plants[i].fertilizer2 + l * plants[j].fertilizer2 === 0 &&
+                                    k * plants[i].fertilizer3 + l * plants[j].fertilizer3 === 0) {
+                                    let name = plants[i].name + ":" + plants[j].name
+                                    let tmp = ratioArr.filter(item => item.name === name && item.r === (k / l));
+                                    if (tmp.length === 0 && (k + l) <= 10) {
+                                        ratioArr.push({
+                                            name: name,
+                                            k: k,
+                                            l: l,
+                                            r: k / l,
+                                            rs: k + ":" + l,
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                for (let i = 0; i < plants.length; i++) {
+                    for (let j = i; j < plants.length; j++) {
+                        for (let j1 = j; j1 < plants.length; j1++) {
+                            for (let k = 1; k < 9; k++) {
+                                for (let l = 1; l < 9; l++) {
+                                    for (let l1 = 1; l1 < 9; l1++) {
+                                        if (k * plants[i].fertilizer1 + l * plants[j].fertilizer1 + l1 * plants[j1].fertilizer1 === 0 &&
+                                            k * plants[i].fertilizer2 + l * plants[j].fertilizer2 + l1 * plants[j1].fertilizer2 === 0 &&
+                                            k * plants[i].fertilizer3 + l * plants[j].fertilizer3 + l1 * plants[j1].fertilizer3 === 0) {
+                                            let name = plants[i].name + ":" + plants[j].name + ":" + plants[j1].name
+                                            let tmp = ratioArr.filter(item => item.name === name && item.r === (k / l) && item.r1 === (l / l1));
+                                            if (tmp.length === 0 && (k + l + l1) <= 10) {
+                                                ratioArr.push({
+                                                    name: name,
+                                                    k: k,
+                                                    l: l,
+                                                    l1: l1,
+                                                    r: k / l,
+                                                    r1: l / l1,
+                                                    rs: k + ":" + l + ":" + l1,
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (checkedPlants.length > 0) {
+                    ratioArr = ratioArr.filter(item => {
+                        let tmp = true;
+                        for (let i = 0; i < checkedPlants.length; i++) {
+                            if (item.name.indexOf(checkedPlants[i].name) === -1) {
+                                tmp = false;
+                                break;
+                            }
+                        }
+                        return tmp;
+                    })
+                }
+                return groupBy(ratioArr, "name");
+            }
+
+            function showResult(arr) {
+                let results = "";
+                for (const obj in arr) {
+                    let child = arr[obj].map(item => `<li>${item.rs}</li>`).join("");
+                    results += `
+                        <details>
+                            <summary>${obj} = ${arr[obj][0].rs}</summary>
+                            <ul>
+                                ${child}
+                            </ul>
+                        </details>
+                    `;
+                }
+                plantRatioElement.innerHTML = results;
+            }
+
+            seasonElement.addEventListener("change", function (e) {
+                let seasonSelected = e.target.value;
+                let plants = getPlantBySeason(seasonSelected);
+                initPlantCheckbox(plants, seasonSelected !== "");
+            });
+
+            calcBtn.addEventListener("click", function (e) {
+                showResult(calcRatio());
+            })
+        })();
+    </script>
+</body>
+
+</html>
