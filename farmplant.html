@@ -1002,7 +1002,7 @@
                     return document.getElementById(item.name).checked;
                 });
                 for (let i = 0; i < plants.length; i++) {
-                    for (let j = i; j < plants.length; j++) {
+                    for (let j = i+1; j < plants.length; j++) {
                         for (let k = 1; k < 9; k++) {
                             for (let l = 1; l < 9; l++) {
                                 if (k * plants[i].fertilizer1 + l * plants[j].fertilizer1 === 0 &&
@@ -1025,8 +1025,8 @@
                     }
                 }
                 for (let i = 0; i < plants.length; i++) {
-                    for (let j = i; j < plants.length; j++) {
-                        for (let j1 = j; j1 < plants.length; j1++) {
+                    for (let j = i+1; j < plants.length; j++) {
+                        for (let j1 = j+1; j1 < plants.length; j1++) {
                             for (let k = 1; k < 9; k++) {
                                 for (let l = 1; l < 9; l++) {
                                     for (let l1 = 1; l1 < 9; l1++) {
