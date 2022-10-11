@@ -78,7 +78,7 @@
             let moddata = [];
 
             // https://tomoya92.github.io/dst-intro
-            fetch("/data/" + modname.mod + "/data.js")
+            fetch("./data/" + modname.mod + "/data.js")
                 .then(function(response){
                     return response.text();
                 })
