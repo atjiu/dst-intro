@@ -17,7 +17,7 @@
     <script type="text/template" id="modstpls">
         <% _.each(mods, function(v){ %>
         <div class="container" onclick="javascript:location.href='/dst-intro/mod.html?mod=<%=v.folder%>'">
-            <img width="72" height="72" src="./data/ndnr/images/<%=v.logo%>">
+            <img width="72" height="72" src="./data/<%=v.folder%>/images/<%=v.logo%>">
             <div class="info">
                 <p>名称：<%=v.name%></p>
                 <p>作者：<%=v.author%></p>

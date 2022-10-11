@@ -13,6 +13,19 @@
 
 **注意：`data.js` 和 `logs.js` 里的description属性的值必须要顶格写，每行前不能有空格，具体可以查看 `data/ndnr/data.js` 里的格式**
 
+## data属性
+
+`data/xxx/data.js` 中的属性
+
+- name 名字
+- code 代码名
+- image 贴图
+- recipe 配方
+- foodtype 食物类型
+- fresh 腐烂时间
+- tech 科技
+- description 描述
+
 ## 如何参与
 
 1. fork本项目，编辑好后发pull request [推荐]
