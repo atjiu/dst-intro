@@ -47,7 +47,7 @@
             let logtpl = _.template(logtpls.innerHTML);
             let loading = document.querySelector(".spinner");
 
-            fetch("https://tomoya92.github.io/dst-intro/data/" + modname.mod + "/logs.js")
+            fetch("./dst-intro/data/" + modname.mod + "/logs.js")
                 .then(function(response){
                     return response.text();
                 })
