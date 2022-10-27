@@ -5,11 +5,40 @@ body {
 }
 
 header {
-    padding: 1rem 0;
+    padding: 10px;
     height: 80px;
     text-align: center;
-    background-color: #095a7a;
-    color: #ccc;
+    background-color: #032735;
+    color: #fff;
+}
+header div {
+    text-align: left;
+    padding: 5px 0;
+}
+header div a {
+    text-decoration: none;
+    font-size: 14px;
+    padding-right: 5px;
+    border-right: 1px solid #ccc;
+    color: #fff;
+}
+header div a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+header div a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+header div a:focus-visible {
+    outline-offset: 0;
+}
+header div a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+header div a:last-child {
+    border-right: 0;
 }
 
 h2 {

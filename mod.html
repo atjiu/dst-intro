@@ -25,9 +25,9 @@
             <% _.each(data.list, function(v){ %>
             <div class="container">
                 <% if (v.image) { %>
-                    <img class="img" src="./data/<%=data.modname%>/images/<%=v.image%>">
+                    <img class="img" style="border-radius: 7px;" src="./data/<%=data.modname%>/images/<%=v.image%>">
                 <% } else { %>
-                    <img class="img" src="./data/<%=data.modname%>/images/blank.png">
+                    <img class="img" style="border-radius: 7px;" src="./data/<%=data.modname%>/images/blank.png">
                 <% } %>
                 <div class="info">
                     <p>名称：<%=v.name%> <%=v.folder%></p>
