@@ -997,6 +997,13 @@
         <form class="pure-form" onsubmit="return;">
             <fieldset>
                 <legend>巨大计算器</legend>
+                <div style="margin-bottom: 10px;">
+                    </label><input type="checkbox" class="mod-plant" id="mod_ndnr" value="ndnr"/><label for="mod_ndnr"> 富贵</label>
+                    </label><input type="checkbox" class="mod-plant" id="mod_lj" value="lj"/><label for="mod_lj"> 棱镜</label>
+                    </label><input type="checkbox" class="mod-plant" id="mod_xz" value="xz"/><label for="mod_xz"> 勋章</label>
+                    </label><input type="checkbox" class="mod-plant" id="mod_sh" value="sh"/><label for="mod_sh"> 神话</label>
+                    </label><input type="checkbox" class="mod-plant" id="mod_wl" value="wl"/><label for="mod_wl"> 舞林</label>
+                </div>
                 <select name="season" id="season">
                     <option value="">选择季节</option>
                     <option value="spring">春</option>
@@ -1013,7 +1020,11 @@
 
     <script type="text/javascript">
         (function () {
-            let data = [
+            // fertilizer1: 催
+            // fertilizer2：堆
+            // fertilizer3：粪
+            // 恢复+，消耗-
+            let origin_data = [
                 { name: "芦笋", season: ["spring", "winter"], water: 1, fertilizer1: 1, fertilizer2: -2, fertilizer3: 1 },
                 { name: "胡萝卜", season: ["spring", "winter", "autumn"], water: 1, fertilizer1: -2, fertilizer2: 1, fertilizer3: 1 },
                 { name: "玉米", season: ["spring", "summer", "autumn"], water: 1, fertilizer1: 1, fertilizer2: -2, fertilizer3: 1 },
@@ -1029,11 +1040,30 @@
                 { name: "番茄", season: ["spring", "summer", "autumn"], water: 3, fertilizer1: -1, fertilizer2: -1, fertilizer3: 2 },
                 { name: "西瓜", season: ["spring", "summer"], water: 3, fertilizer1: 2, fertilizer2: -1, fertilizer3: -1 },
             ];
+            let data = [...origin_data];
+
+            let mod_data = {
+                ndnr: [{ name: "大豆", season: ["summer", "autumn"], water: 1, fertilizer1: 4, fertilizer2: -2, fertilizer3: -2 }],
+                lj: [{ name: "松萝", season: ["summer", "autumn"], water: 1, fertilizer1: -1, fertilizer2: 2, fertilizer3: -1 }],
+                xz: [{ name: "不朽", season: ["winter"], water: 3, fertilizer1: -4, fertilizer2: -4, fertilizer3: 8 }],
+                sh: [{ name: "葫芦", season: ["autumn"], water: 2, fertilizer1: 1, fertilizer2: 1, fertilizer3: -2 }],
+                wl: [
+                    { name: "葫芦藤", season: ["autumn"], water: 2, fertilizer1: 1, fertilizer2: 1, fertilizer3: -2 },
+                    { name: "苹果", season: ["autumn"], water: 2, fertilizer1: 5, fertilizer2: -4, fertilizer3: -1 },
+                    { name: "柠檬", season: ["autumn", "spring"], water: 2, fertilizer1: -6, fertilizer2: -3, fertilizer3: 9 },
+                    { name: "芒果", season: ["winter", "summer"], water: 3, fertilizer1: 6, fertilizer2: -12, fertilizer3: 6 },
+                    { name: "青橙", season: ["summer"], water: 3, fertilizer1: 13, fertilizer2: -8, fertilizer3: -5 },
+                    { name: "草莓", season: ["winter", "spring"], water: 3, fertilizer1: -2, fertilizer2: -11, fertilizer3: 13 },
+                    { name: "甜菜", season: ["spring", "winter", "summer", "autumn"], water: 1, fertilizer1: -1, fertilizer2: 2, fertilizer3: -1 },
+                    { name: "冬瓜", season: ["spring", "autumn"], water: 3, fertilizer1: -2, fertilizer2: -8, fertilizer3: 10 },
+                ],
+            }
 
             let seasonElement = document.getElementById('season');
             let plantElement = document.getElementById('plant');
             let calcBtn = document.getElementById('calcBtn');
             let plantRatioElement = document.getElementById('plantRatio');
+            let modPlantCheckbox = document.querySelectorAll('.mod-plant');
 
             // ------------------------------------------------------------------------------------------------------------------------
             // 初始化
@@ -1163,7 +1193,22 @@
 
             calcBtn.addEventListener("click", function (e) {
                 showResult(calcRatio());
-            })
+            });
+
+            for(let i = 0;i<modPlantCheckbox.length;i++) {
+                modPlantCheckbox[i].addEventListener("change", function(e){
+                    let modPlantCheckeds = document.querySelectorAll(".mod-plant:checked");
+                    data = [...origin_data];
+                    if (modPlantCheckeds.length>0) {
+                        for(let j = 0; j<modPlantCheckeds.length;j++){
+                            let value = modPlantCheckeds[j].value;
+                            data = [...data, ...mod_data[value]];
+                        }
+                    }
+                    initPlantCheckbox(data, false);
+                    showResult([]);
+                });
+            }
         })();
     </script>
 </body>
