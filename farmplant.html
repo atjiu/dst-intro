@@ -1185,10 +1185,14 @@
                 plantRatioElement.innerHTML = results;
             }
 
+            function filterBySeason(season) {
+                let plants = getPlantBySeason(season);
+                initPlantCheckbox(plants, season !== "");
+            }
+
             seasonElement.addEventListener("change", function (e) {
                 let seasonSelected = e.target.value;
-                let plants = getPlantBySeason(seasonSelected);
-                initPlantCheckbox(plants, seasonSelected !== "");
+                filterBySeason(seasonSelected);
             });
 
             calcBtn.addEventListener("click", function (e) {
@@ -1207,6 +1211,7 @@
                     }
                     initPlantCheckbox(data, false);
                     showResult([]);
+                    filterBySeason(seasonElement.value);
                 });
             }
         })();
