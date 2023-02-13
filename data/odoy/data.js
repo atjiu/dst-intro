@@ -332,7 +332,6 @@ PS：神器鼎，没有买卖就没有伤害，龙蝇受死！
       },
     ],
   },
-
   {
     category: "物品",
     child: [
@@ -496,6 +495,27 @@ PS：便宜的头盔
 PS：虽然比头盔贵一半，但是也很便宜
         `,
       },
+      {
+        name: "夜视仪",
+        image: "odoy_nightvisionsight.png",
+        code: "odoy_nightvisionsight",
+        recipe: "鼹鼠帽x1+电子元件x2+铜块x2",
+        tech: "科学二本",
+        description: `
+戴上后可夜视，能量为电能，用完可充电，满电能用5天
+        `,
+      },
+      {
+        name: "猪脂肪",
+        image: "odoy_pigfat.png",
+        code: "odoy_pigfat",
+        recipe: "",
+        tech: "",
+        description: `
+击杀猪掉落，普通猪掉落物权重：大肉3，猪皮1，脂肪3。
+疯猪必掉
+        `,
+      },
     ],
   },
   {
@@ -510,6 +530,245 @@ PS：虽然比头盔贵一半，但是也很便宜
 
 地面上的铜矿地形必刷一个虫洞，有小概率会刷高鸟
 铜矿是可再生的，每隔10天会尝试刷新铜矿
+            `,
+      },
+    ],
+  },
+  {
+    category: "料理",
+    child: [
+      {
+        name: "猪油",
+        image: "odoy_lard.png",
+        code: "odoy_lard",
+        foodtype: "不可食用",
+        fresh: "70天",
+        description: `
+4个 猪脂肪或猪皮 放在锅里可炼出4份猪油 有1单位的脂肪
+
+|饱|精|血|其它|
+|---|---|---|---|
+|0|0|0|脂肪度x1|
+            `,
+      },
+      {
+        name: "花生油",
+        image: "odoy_peanutoil.png",
+        code: "odoy_peanutoil",
+        foodtype: "不可食用",
+        fresh: "70天",
+        description: `
+4个花生在锅中可炼2份花生油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|0|0|0|脂肪度x1|
+            `,
+      },
+      {
+        name: "番茄炒蛋",
+        image: "odoy_tomatoegg.png",
+        code: "odoy_tomatoegg",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：番茄，蛋，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "地三鲜",
+        image: "odoy_disanxian.png",
+        code: "odoy_disanxian",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：茄子，土豆，辣椒，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "水煮肉片",
+        image: "odoy_shuizhurou.png",
+        code: "odoy_shuizhurou",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：水瓶，肉，辣椒，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "土豆丝",
+        image: "odoy_tudousi.png",
+        code: "odoy_tudousi",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：土豆，辣椒，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "青椒肉丝",
+        image: "odoy_qingjiaorousi.png",
+        code: "odoy_qingjiaorousi",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：辣椒，肉，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "油焖大虾",
+        image: "odoy_youmenxiao.png",
+        code: "odoy_youmenxiao",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：虾x2(活虾)，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "肉沫茄子",
+        image: "odoy_roumoqiezi.png",
+        code: "odoy_roumoqiezi",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：茄子，肉，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "青椒炒香菇",
+        image: "odoy_qingjiaomogu.png",
+        code: "odoy_qingjiaomogu",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：辣椒，蘑菇，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "虾仁玉米",
+        image: "odoy_yumixia.png",
+        code: "odoy_yumixia",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：虾(因为是虾仁，所以是死虾)，玉米，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "红烧鸡腿",
+        image: "odoy_hongshaojitui.png",
+        code: "odoy_hongshaojitui",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：鸡腿x2，盐，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+      {
+        name: "宫保鸡丁",
+        image: "odoy_gongbaojiding.png",
+        code: "odoy_gongbaojiding",
+        foodtype: "GOODIES",
+        fresh: "10天",
+        description: `
+配方：鸡腿，玉米，胡萝卜，油
+
+|饱|精|血|其它|
+|---|---|---|---|
+|37.5|15|0|家常菜|
+            `,
+      },
+    ],
+  },
+  {
+    category: "作物",
+    child: [
+      {
+        name: "花生植株",
+        image: "odoy_peanut_plant.png",
+        description: `
+随机种子可长出花生植株
+
+稀有度：罕见
+
+季节：秋冬作物
+
+属性：水x1，生长素x2，堆肥x-1，粪肥x-1
+
+花生可直接吃，也可用来榨油。花生油是模组料理油脂肪的主要来源。
+
+            `,
+      },
+      {
+        name: "花生",
+        image: "odoy_peanut.png",
+        code: "odoy_peanut",
+        foodtype: "VEGGIE",
+        fresh: "6天",
+        description: `
+花生作物成熟后可获得
+
+可生吃，可烤着吃，可榨油，可入锅当配菜
+
+|饱|精|血|其它|
+|---|---|---|---|
+|12.5|12.5|0||
+            `,
+      },
+    ],
+  },
+  {
+    category: "彩蛋",
+    child: [
+      {
+        name: "按时吃饭",
+        image: "",
+        code: "",
+        description: `
+每天的三个时段的前30%的时间内吃 **家常菜** 每天都能按时吃饭，就会有个健康的身体，第二寿命的流失速度会降为正常的一半，持续 <del>一年</del> 一天时间。
+
+**朋也：游戏即使再好玩，也要按时吃饭哦 :)**
             `,
       },
     ],
