@@ -237,3 +237,7 @@ button {
     font-size: 0.8rem;
     font-weight: 700;
 }
+
+pre code {
+    white-space: break-spaces;
+}
