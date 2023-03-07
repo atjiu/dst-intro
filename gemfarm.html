@@ -23,10 +23,51 @@
             word-break: keep-all;
         }
         blockquote {
-            border-left: 6px rgb(179, 179, 179) solid;
             padding: 1rem;
             margin-left: 5px;
-            background-color: rgb(230, 230, 230);
+            /* border-left: 6px rgb(179, 179, 179) solid;
+            background-color: rgb(230, 230, 230); */
+        }
+
+        /* 应用于深色主题 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #222;
+                color: #eee;
+            }
+
+            .container {
+                background-color: #303030;
+            }
+
+            blockquote {
+                border-left: 6px rgb(83, 83, 83) solid;
+                background-color: rgb(66, 66, 66);
+            }
+
+            blockquote a {
+                color: #eee;
+            }
+        }
+
+        /* 应用于浅色主题 */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f5f5f5;
+                color: #333;
+            }
+
+            .container {
+                background-color: #fff;
+            }
+
+            blockquote {
+                border-left: 6px rgb(179, 179, 179) solid;
+                background-color: rgb(230, 230, 230);
+            }
+            blockquote a {
+                color: #333;
+            }
         }
     </style>
 </head>

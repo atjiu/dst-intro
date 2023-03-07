@@ -1,15 +1,48 @@
 html,
 body {
     margin: 0 auto;
-    background-color: #ccc;
+    /* background-color: #ccc; */
+}
+
+/* 应用于深色主题 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #eee;
+    }
+    header {
+        background-color: #021b25;
+    }
+    .container {
+        background-color: #303030;
+    }
+    .tools select,input,button {
+        background-color: #303030;
+        color: #eee;
+    }
+}
+
+/* 应用于浅色主题 */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    header {
+        background-color: #032735;
+        color: #fff;
+    }
+    .container {
+        background-color: #fff;
+    }
 }
 
 header {
     padding: 10px;
     height: 80px;
     text-align: center;
-    background-color: #032735;
-    color: #fff;
+    /* background-color: #032735; */
+    /* color: #fff; */
 }
 header div {
     text-align: left;
@@ -45,7 +78,8 @@ h2 {
     margin-top: 0;
 }
 
-ol,ul {
+ol,
+ul {
     padding-left: 1rem;
 }
 
@@ -66,29 +100,37 @@ p {
     margin: 100px auto;
     -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
     animation: sk-rotateplane 1.2s infinite ease-in-out;
-  }
+}
 
-  @-webkit-keyframes sk-rotateplane {
-    0% { -webkit-transform: perspective(120px) }
-    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
-    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
-  }
-
-  @keyframes sk-rotateplane {
+@-webkit-keyframes sk-rotateplane {
     0% {
-      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
-    } 50% {
-      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
-    } 100% {
-      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px);
     }
-  }
+    50% {
+        -webkit-transform: perspective(120px) rotateY(180deg);
+    }
+    100% {
+        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+    }
+}
+
+@keyframes sk-rotateplane {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
 
 .container {
-    background-color: #fff;
+    /* background-color: #fff; */
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -120,7 +162,7 @@ p {
     border-spacing: 0;
     max-width: 100%;
     overflow: auto;
-    margin-top: 5px;
+    margin: 10px 0;
 }
 
 .info table th {
@@ -157,13 +199,10 @@ p {
     padding: 0 5px;
     justify-content: space-between;
 }
-.tools select,
-input {
+.tools select,input {
     margin-right: 2px;
 }
-.tools select,
-input,
-button {
+.tools select,input,button {
     height: 2rem;
     border-radius: 5px;
     border: 0;
@@ -186,7 +225,7 @@ button {
 .tools input {
     width: 50%;
 }
-.red{
+.red {
     color: #ff0000;
 }
 

@@ -39,6 +39,48 @@
         .bg-blue {
             background-color: #0000ff!important;
         }
+        /* 应用于深色主题 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #222;
+                color: #eee;
+            }
+
+            .container {
+                background-color: #303030;
+            }
+
+            select,
+            button {
+                background-color: #303030!important;
+                color: #eee!important;
+            }
+            select {
+                box-shadow: none!important;
+            }
+            button {
+                border: 1px solid #eee!important;
+                border-radius: 4px!important;
+            }
+            table thead {
+                background-color: rgb(71, 71, 71)!important;
+                color: #eee!important;
+            }
+            table thead th {
+                border-bottom: 1px solid #cbcbcb!important;
+            }
+        }
+
+        /* 应用于浅色主题 */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f5f5f5;
+                color: #333;
+            }
+            .container {
+                background-color: #fff;
+            }
+        }
     </style>
 </head>
 

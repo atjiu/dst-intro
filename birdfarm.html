@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,25 +12,69 @@
             margin: 0 auto;
             padding: 10px;
         }
+
         details {
             padding: 5px;
             cursor: pointer;
         }
+
         li {
             padding: 5px;
         }
+
         .pure-form label {
             display: inline;
             word-break: keep-all;
         }
+
         blockquote {
-            border-left: 6px rgb(179, 179, 179) solid;
             padding: 1rem;
             margin-left: 5px;
-            background-color: rgb(230, 230, 230);
+        }
+
+        /* 应用于深色主题 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #222;
+                color: #eee;
+            }
+
+            .container {
+                background-color: #303030;
+            }
+
+            blockquote {
+                border-left: 6px rgb(83, 83, 83) solid;
+                background-color: rgb(66, 66, 66);
+            }
+
+            blockquote a {
+                color: #eee;
+            }
+        }
+
+        /* 应用于浅色主题 */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f5f5f5;
+                color: #333;
+            }
+
+            .container {
+                background-color: #fff;
+            }
+
+            blockquote {
+                border-left: 6px rgb(179, 179, 179) solid;
+                background-color: rgb(230, 230, 230);
+            }
+            blockquote a {
+                color: #333;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>鸟场</h1>
@@ -67,71 +112,71 @@
             <summary>
                 海星位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705090122.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705090122.png" /></p>
         </details>
         <details>
             <summary>
                 灭火器位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705091008.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705091008.png" /></p>
         </details>
         <details>
             <summary>
                 发电机位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705091123.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705091123.png" /></p>
         </details>
         <details>
             <summary>
                 投石机位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705091247.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705091247.png" /></p>
         </details>
         <details>
             <summary>
                 稻草人位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705091324.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705091324.png" /></p>
         </details>
         <details>
             <summary>
                 读书位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705091431.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705091431.png" /></p>
         </details>
         <details>
             <summary>
                 小木牌位置
             </summary>
             <p>两边对称，一边10个，共20个</p>
-            <p><img class="pure-img" src="./assets/images/20220705091515.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705091515.png" /></p>
         </details>
         <details>
             <summary>
                 化石碎片位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705091757.png"/></p>
-            <p><img class="pure-img" src="./assets/images/20220705092037.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705091757.png" /></p>
+            <p><img class="pure-img" src="./assets/images/20220705092037.png" /></p>
         </details>
         <details>
             <summary>
                 石墙位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705092511.png"/></p>
-            <p><img class="pure-img" src="./assets/images/20220705092607.png"/></p>
-            <p><img class="pure-img" src="./assets/images/20220705092741.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705092511.png" /></p>
+            <p><img class="pure-img" src="./assets/images/20220705092607.png" /></p>
+            <p><img class="pure-img" src="./assets/images/20220705092741.png" /></p>
         </details>
         <details>
             <summary>
                 矮星位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705092833.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705092833.png" /></p>
         </details>
         <details>
             <summary>
                 小切位置
             </summary>
-            <p><img class="pure-img" src="./assets/images/20220705093018.png"/></p>
+            <p><img class="pure-img" src="./assets/images/20220705093018.png" /></p>
         </details>
         <details>
             <summary>
@@ -144,4 +189,5 @@
         </details>
     </div>
 </body>
+
 </html>
