@@ -1,60 +1,761 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="./assets/app.css">
-    <title>饥荒模组介绍页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饥荒模组介绍页 - SPA</title>
+    <script src="./assets/js/react.development.js"></script>
+    <script src="./assets/js/react-dom.development.js"></script>
+    <script src="./assets/js/babel.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --primary-light: #3498db;
+            --secondary-color: #7f8c8d;
+            --accent-color: #e74c3c;
+            --background-color: #f5f7fa;
+            --surface-color: #ffffff;
+            --text-color: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e0e6ed;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --hover-color: #f8fafc;
+            --spinner-color: #3498db;
+            --header-height: 70px;
+            --border-radius: 8px;
+            --card-radius: 12px;
+            --transition-speed: 0.3s;
+            --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #ffffff;
+            --primary-light: #5ac8fa;
+            --secondary-color: #8e8e93;
+            --accent-color: #ff3b30;
+            --background-color: #000000;
+            --surface-color: #1c1c1e;
+            --text-color: #ffffff;
+            --text-secondary: #8e8e93;
+            --border-color: #38383a;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --hover-color: #2c2c2e;
+            --spinner-color: #5ac8fa;
+            --gradient-bg: linear-gradient(135deg, #000000 0%, #1c1c1e 100%);
+        }
+
+        /* 优化导航链接在暗色主题下的颜色 */
+        [data-theme="dark"] .header-title {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .nav-link {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .nav-link:hover,
+        [data-theme="dark"] .nav-link.active {
+            color: #5ac8fa;
+            border-bottom-color: #5ac8fa;
+        }
+
+        [data-theme="dark"] .nav-link::after {
+            background: #5ac8fa;
+        }
+
+        /* 优化模组卡片在暗色主题下的样式 */
+        [data-theme="dark"] .mod-card {
+            background: #1c1c1e;
+            border-color: #38383a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .mod-card:hover {
+            background: #2c2c2e;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="dark"] .mod-logo {
+            border-color: #38383a;
+            background: #2c2c2e;
+        }
+
+        [data-theme="dark"] .mod-name {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .mod-author {
+            color: #5ac8fa;
+        }
+
+        [data-theme="dark"] .mod-intro {
+            color: #8e8e93;
+        }
+
+        /* 优化加载状态在暗色主题下的样式 */
+        [data-theme="dark"] .loading-text {
+            color: #8e8e93;
+        }
+
+        [data-theme="dark"] .spinner {
+            border-color: rgba(90, 200, 250, 0.1);
+            border-top-color: #5ac8fa;
+        }
+
+        /* 优化空状态和错误状态在暗色主题下的样式 */
+        [data-theme="dark"] .empty-state h3 {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .empty-state p {
+            color: #8e8e93;
+        }
+
+        [data-theme="dark"] .retry-button {
+            background: #5ac8fa;
+            color: #000000;
+        }
+
+        [data-theme="dark"] .retry-button:hover {
+            background: #7bd5fb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-color);
+            transition: all var(--transition-speed);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .app {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--surface-color);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            padding: 0 30px;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all var(--transition-speed);
+        }
+
+        .header-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            padding: 8px 0;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            border-bottom: 2px solid transparent;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-light);
+            border-bottom-color: var(--primary-light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width var(--transition-speed);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* 模组网格 */
+        .mods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .mod-card {
+            background: var(--surface-color);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .mod-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow-color);
+        }
+
+        .mod-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: var(--card-radius) var(--card-radius) 0 0;
+        }
+
+        .mod-card-content {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+            align-items: flex-start;
+            flex-direction: row;
+        }
+
+        .mod-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+            background: var(--hover-color);
+        }
+
+        .mod-card:hover .mod-logo {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .mod-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .mod-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .mod-name::after {
+            content: '→';
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all var(--transition-speed);
+            color: var(--accent-color);
+        }
+
+        .mod-card:hover .mod-name::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mod-author {
+            color: var(--primary-light);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .mod-intro {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .mod-author::before {
+            content: '👨‍💻';
+            font-size: 0.9em;
+        }
+
+        /* 加载动画 */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            gap: 30px;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(52, 152, 219, 0.1);
+            border-top: 4px solid var(--spinner-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+
+        .spinner::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 5px solid transparent;
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 15px;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .mods-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 25px;
+            }
+
+            .page-title {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .header-title {
+                margin-bottom: 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .mods-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .mod-card-content {
+                flex-direction: row;
+                padding: 16px;
+                gap: 16px;
+            }
+
+            .mod-logo {
+                width: 72px;
+                height: 72px;
+                flex-shrink: 0;
+            }
+
+            .mod-info {
+                flex: 1;
+            }
+
+            .mod-name {
+                font-size: 1.2rem;
+                margin-bottom: 6px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .mod-author {
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+            }
+
+            .mod-intro {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                /* 限制显示3行 */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 25px 15px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .mod-card {
+                border-radius: 12px;
+            }
+
+            .mod-card-content {
+                padding: 14px;
+                gap: 14px;
+            }
+
+            .mod-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .mod-name {
+                font-size: 1.1rem;
+            }
+
+            .mod-author {
+                font-size: 0.85rem;
+            }
+
+            .mod-intro {
+                font-size: 0.85rem;
+                -webkit-line-clamp: 2;
+                /* 小屏幕只显示2行 */
+            }
+        }
+
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .retry-button {
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .retry-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <h2>饥荒模组介绍页</h2>
-        <div>
-            <a href="./birdfarm.html">鸟场</a>
-            <a href="./farmplant.html">种地</a>
-            <a href="./gemfarm.html">狗场</a>
-        </div>
-    </header>
+    <div id="root"></div>
 
-    <section id="section"></section>
-    <script type="text/template" id="modstpls">
-        <% _.each(mods, function(v){ %>
-        <div class="container" onclick="javascript:location.href='./mod.html?mod=<%=v.folder%>'">
-            <img width="72" height="72" style="border-radius: 7px;" src="./data/<%=v.folder%>/images/<%=v.logo%>">
-            <div class="info">
-                <p>名称：<%=v.name%></p>
-                <p>作者：<%=v.author%></p>
-                <p class="intro">简介：<%=v.intro%></p>
-            </div>
-        </div>
-        <% }) %>
-    </script>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-    <div class="spinner"></div>
+        // 主应用组件
+        function App() {
+            const [currentPage, setCurrentPage] = useState('home');
+            const [mods, setMods] = useState([]);
+            const [isLoading, setIsLoading] = useState(true);
+            const [error, setError] = useState(null);
 
-    <script src="./assets/underscore.min.js"></script>
-    <script>
-        (function(){
-            let modstpls = document.getElementById('modstpls');
-            let modstpl = _.template(modstpls.innerHTML);
-            let loading = document.querySelector(".spinner")
+            // 检测系统主题变化
+            useEffect(() => {
+                const checkTheme = () => {
+                    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+                };
 
-            fetch("./data/mods.json")
-                .then(function(response){
-                    return response.json();
-                })
-                .then(function(data){
-                    loading.style.display = "none";
-                    document.getElementById("section").innerHTML = modstpl({
-                        mods: data
-                    });
-                })
-                .catch(function(err){
-                    console.log(err);
-                });
-        })()
+                // 初始检测
+                checkTheme();
+
+                // 监听主题变化
+                const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                const handleChange = (e) => {
+                    checkTheme();
+                };
+
+                mediaQuery.addEventListener('change', handleChange);
+
+                // 清理监听器
+                return () => {
+                    mediaQuery.removeEventListener('change', handleChange);
+                };
+            }, []);
+
+            // 加载模组数据
+            useEffect(() => {
+                const loadModsData = async () => {
+                    setIsLoading(true);
+                    setError(null);
+
+                    try {
+                        // 使用相对路径加载mods.json文件
+                        const response = await fetch('./data/mods.json');
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP错误! 状态: ${response.status}`);
+                        }
+
+                        const data = await response.json();
+                        setMods(data);
+                    } catch (err) {
+                        console.error('加载模组数据失败:', err);
+                        setError('无法加载模组数据，请稍后重试。');
+                    } finally {
+                        setIsLoading(false);
+                    }
+                };
+
+                loadModsData();
+            }, []);
+
+            // 处理模组点击 - 跳转到mod.html页面
+            const handleModClick = (modFolder) => {
+                window.location.href = `./mod.html?mod=${modFolder}`;
+            };
+
+            // 处理导航点击
+            const handleNavClick = (page) => {
+                if (page === 'birdfarm') {
+                    window.location.href = './birdfarm.html';
+                } else if (page === 'farmplant') {
+                    window.location.href = './farmplant.html';
+                } else if (page === 'gemfarm') {
+                    window.location.href = './gemfarm.html';
+                } else {
+                    setCurrentPage(page);
+                }
+            };
+
+            // 重试加载数据
+            const handleRetry = () => {
+                setIsLoading(true);
+                setError(null);
+
+                // 重新加载数据
+                setTimeout(() => {
+                    const loadModsData = async () => {
+                        try {
+                            const response = await fetch('./data/mods.json');
+                            const data = await response.json();
+                            setMods(data);
+                        } catch (err) {
+                            console.error('重试加载模组数据失败:', err);
+                            setError('无法加载模组数据，请检查网络连接。');
+                        } finally {
+                            setIsLoading(false);
+                        }
+                    };
+
+                    loadModsData();
+                }, 1000);
+            };
+
+            return (
+                <div className="app">
+                    <header>
+                        <h1 className="header-title">饥荒模组介绍页</h1>
+                        <div className="nav-links">
+                            <a
+                                className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
+                                onClick={() => handleNavClick('home')}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                首页
+                            </a>
+                            <a
+                                className="nav-link"
+                                onClick={() => handleNavClick('farmplant')}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                种地
+                            </a>
+                            <a
+                                className="nav-link"
+                                onClick={() => handleNavClick('birdfarm')}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                鸟场
+                            </a>
+                            <a
+                                className="nav-link"
+                                onClick={() => handleNavClick('gemfarm')}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                狗场
+                            </a>
+                        </div>
+                    </header>
+
+                    <main className="main-content">
+                        {isLoading ? (
+                            <div className="loading-container">
+                                <div className="spinner"></div>
+                                <p className="loading-text">正在加载饥荒模组...</p>
+                            </div>
+                        ) : error ? (
+                            <div className="empty-state">
+                                <h3>加载失败</h3>
+                                <p>{error}</p>
+                                <button className="retry-button" onClick={handleRetry}>
+                                    重试加载
+                                </button>
+                            </div>
+                        ) : (
+                            <>
+                                {mods.length > 0 ? (
+                                    <div className="mods-grid">
+                                        {mods.map((mod, index) => (
+                                            <div
+                                                key={index}
+                                                className="mod-card"
+                                                onClick={() => handleModClick(mod.folder)}
+                                            >
+                                                <div className="mod-card-content">
+                                                    {/* Logo在左边 */}
+                                                    <img
+                                                        src={`./data/${mod.folder}/images/${mod.logo}`}
+                                                        alt={mod.name}
+                                                        className="mod-logo"
+                                                        width="72"
+                                                        height="72"
+                                                        onError={(e) => {
+                                                            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3IiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHJ4PSI4IiBmaWxsPSIjMzQ5OGRiIi8+PHBhdGggZD0iTTM2IDI0TDI0IDM2TDM2IDQ4TTQ4IDI0TDM2IDM2TDQ4IDQ4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==';
+                                                        }}
+                                                    />
+
+                                                    {/* 模组信息在右边 */}
+                                                    <div className="mod-info">
+                                                        <h3 className="mod-name">{mod.name}</h3>
+                                                        <p className="mod-author">作者：{mod.author}</p>
+                                                        <p className="mod-intro">简介：{mod.intro}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="empty-state">
+                                        <h3>暂无模组数据</h3>
+                                        <p>未找到任何模组信息，请检查数据文件或稍后重试。</p>
+                                        <button className="retry-button" onClick={handleRetry}>
+                                            重新加载
+                                        </button>
+                                    </div>
+                                )}
+                            </>
+                        )}
+                    </main>
+                </div>
+            );
+        }
+
+        // 渲染应用
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     </script>
 </body>
+
 </html>

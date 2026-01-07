@@ -1,138 +1,965 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>饥荒模组介绍页</title>
-
-    <link rel="stylesheet" href="./assets/app.css">
-</head>
-<body>
-    <header>
-        <h2>饥荒模组介绍页</h2>
-
-        <div class="tools">
-            <select name="category" id="category"></select>
-            <input type="search" id="search" value="" placeholder="搜点啥~"/>
-            <button id="updatelog">更新日志</button>
-        </div>
-    </header>
-
-    <section id="section">
-        <script type="text/template" id="modtpls">
-            <% _.each(data.list, function(v){ %>
-            <div class="container">
-                <% if (v.image) { %>
-                    <img class="img" style="border-radius: 7px;" src="./data/<%=data.modname%>/images/<%=v.image%>">
-                <% } else { %>
-                    <img class="img" style="border-radius: 7px;" src="./data/<%=data.modname%>/images/blank.png">
-                <% } %>
-                <div class="info">
-                    <p>名称：<%=v.name%> <%=v.folder%></p>
-                    <% if(v.code) { %>
-                        <p>代码：<%=v.code%></p>
-                    <% } %>
-                    <% if(v.recipe) { %>
-                        <p>配方：<%=v.recipe%></p>
-                    <% } %>
-                    <% if(v.foodtype) { %>
-                        <p>类型：<%=v.foodtype%></p>
-                    <% } %>
-                    <% if(v.fresh) { %>
-                        <p>保质：<%=v.fresh%></p>
-                    <% } %>
-                    <% if(v.tech) { %>
-                        <p>科技：<%=v.tech%></p>
-                    <% } %>
-                    <% if(v.description) { %>
-                        <p class="description">描述：<%=marked.parse(v.description)%></p>
-                    <% } %>
-                </div>
-            </div>
-            <% }) %>
-        </script>
-    </section>
-
-    <div class="spinner"></div>
-
-    <script src="./assets/underscore.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饥荒模组详情页</title>
+    <script src="./assets/js/react.development.js"></script>
+    <script src="./assets/js/react-dom.development.js"></script>
+    <script src="./assets/js/babel.min.js"></script>
     <script src="./assets/marked.min.js"></script>
-    <script src="./assets/app.js"></script>
-    <script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --primary-light: #3498db;
+            --secondary-color: #7f8c8d;
+            --accent-color: #e74c3c;
+            --background-color: #f5f7fa;
+            --surface-color: #ffffff;
+            --text-color: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e0e6ed;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --hover-color: #f8fafc;
+            --spinner-color: #3498db;
+            --header-height: 70px;
+            --border-radius: 8px;
+            --card-radius: 12px;
+            --transition-speed: 0.3s;
+            --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+        }
 
-        (function(){
-            // DEBUG
-            // document.write('<script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js" ><\/script><script>eruda.init();<\/script>')
+        [data-theme="dark"] {
+            --primary-color: #ecf0f1;
+            --primary-light: #3498db;
+            --secondary-color: #95a5a6;
+            --accent-color: #e74c3c;
+            --background-color: #1a1a2e;
+            --surface-color: #16213e;
+            --text-color: #ecf0f1;
+            --text-secondary: #bdc3c7;
+            --border-color: #2d3748;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --hover-color: #1e2a4d;
+            --spinner-color: #3498db;
+            --gradient-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
 
-            let modname = qs(location.search);
-            let modtpls = document.getElementById('modtpls');
-            let sectionDom = document.getElementById("section");
-            let categoryDom = document.getElementById("category");
-            let searchDom = document.getElementById("search");
-            let updatelogDom = document.getElementById("updatelog");
-            let loading = document.querySelector(".spinner");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            let modtpl = _.template(modtpls.innerHTML);
-            let moddata = [];
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-color);
+            transition: all var(--transition-speed);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
 
-            // https://tomoya92.github.io/dst-intro
-            fetch("./data/" + modname.mod + "/data.js")
-                .then(function(response){
-                    return response.text();
-                })
-                .then(function(data){
-                    loading.style.display = "none";
-                    let jsdata = eval(data);
-                    jsdata["folder"] = modname.mod;
-                    moddata = jsdata;
+        .app {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-                    sectionDom.innerHTML = modtpl({
-                        data: {
-                            list: getAllChildren(jsdata),
-                            modname: modname.mod,
+        header {
+            background: var(--surface-color);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            padding: 0 30px;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all var(--transition-speed);
+        }
+
+        .header-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .tools {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        select,
+        input,
+        button {
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background: var(--surface-color);
+            color: var(--text-color);
+            font-size: 0.95rem;
+            transition: all var(--transition-speed);
+        }
+
+        select {
+            min-width: 120px;
+            cursor: pointer;
+        }
+
+        input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        button {
+            background: var(--primary-light);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 分类标题 */
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .category-title:first-child {
+            margin-top: 0;
+        }
+
+        /* 加载动画 */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            gap: 20px;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(52, 152, 219, 0.1);
+            border-top: 4px solid var(--spinner-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--surface-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+            transition: all var(--transition-speed);
+        }
+
+        .back-link:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .waterfall-container {
+            column-count: 3;
+            column-gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .waterfall-card {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            background: var(--surface-color);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            display: inline-block;
+            width: 100%;
+        }
+
+
+        .waterfall-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow-color);
+        }
+
+        .waterfall-card-content {
+            padding: 20px;
+        }
+
+        .markdown-content {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            margin: 20px 0 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .markdown-content h1 {
+            font-size: 1.5rem;
+        }
+
+        .markdown-content h2 {
+            font-size: 1.3rem;
+        }
+
+        .markdown-content h3 {
+            font-size: 1.2rem;
+        }
+
+        .markdown-content h4 {
+            font-size: 1.1rem;
+        }
+
+        .markdown-content p {
+            margin: 10px 0;
+        }
+
+        .markdown-content strong {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .markdown-content em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .markdown-content del {
+            color: var(--secondary-color);
+            text-decoration: line-through;
+        }
+
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .markdown-content th {
+            background: var(--hover-color);
+            font-weight: 600;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .markdown-content td {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .markdown-content ul,
+        .markdown-content ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .markdown-content li {
+            margin: 5px 0;
+        }
+
+        .markdown-content code {
+            background: var(--hover-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .markdown-content pre {
+            background: var(--hover-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .markdown-content blockquote {
+            border-left: 4px solid var(--primary-light);
+            padding-left: 15px;
+            margin: 15px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .search-highlight {
+            background: linear-gradient(120deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 193, 7, 0.3) 100%);
+            padding: 0 2px;
+            border-radius: 2px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .search-highlight.name {
+            background: linear-gradient(120deg, rgba(76, 175, 80, 0.2) 0%, rgba(76, 175, 80, 0.3) 100%);
+        }
+
+        .search-highlight.code {
+            background: linear-gradient(120deg, rgba(33, 150, 243, 0.2) 0%, rgba(33, 150, 243, 0.3) 100%);
+        }
+
+        .search-highlight.description {
+            background: linear-gradient(120deg, rgba(156, 39, 176, 0.2) 0%, rgba(156, 39, 176, 0.3) 100%);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+
+            .waterfall-container {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .tools {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            select,
+            input,
+            button {
+                width: 100%;
+            }
+
+            .items-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .item-card-content {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .item-image {
+                width: 100%;
+                height: 200px;
+                object-fit: contain;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+
+            .waterfall-container {
+                column-count: 1;
+            }
+
+            .waterfall-card-content {
+                padding: 15px;
+            }
+
+            .waterfall-card-content>div:first-child {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .waterfall-card-content img {
+                width: 100%;
+                height: 150px;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 15px;
+            }
+
+            .item-card {
+                border-radius: 8px;
+            }
+
+            .item-card-content {
+                padding: 12px;
+            }
+
+            .item-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const markedInstance = window.marked || null;
+
+        // 解析URL参数
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // 主应用组件
+        function App() {
+            const [modName, setModName] = useState('');
+            const [modData, setModData] = useState([]);
+            const [filteredData, setFilteredData] = useState([]);
+            const [isLoading, setIsLoading] = useState(true);
+            const [error, setError] = useState(null);
+            const [selectedCategory, setSelectedCategory] = useState('全部');
+            const [searchTerm, setSearchTerm] = useState('');
+            const [categories, setCategories] = useState(['全部']);
+
+            // 检测系统主题变化
+            useEffect(() => {
+                const checkTheme = () => {
+                    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+                };
+
+                checkTheme();
+
+                const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                const handleChange = () => {
+                    checkTheme();
+                };
+
+                mediaQuery.addEventListener('change', handleChange);
+
+                return () => {
+                    mediaQuery.removeEventListener('change', handleChange);
+                };
+            }, []);
+
+            // 加载模组数据
+            useEffect(() => {
+                const loadModData = async () => {
+                    setIsLoading(true);
+                    setError(null);
+
+                    const modParam = getQueryParam('mod');
+                    if (!modParam) {
+                        setError('未指定模组名称');
+                        setIsLoading(false);
+                        return;
+                    }
+
+                    setModName(modParam);
+
+                    try {
+                        const response = await fetch(`./data/${modParam}/data.js`);
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP错误! 状态: ${response.status}`);
                         }
-                    });
 
-                    addOptions("category", ["全部"]);
-                    addOptions("category", getAllCategory(jsdata));
+                        const jsContent = await response.text();
+                        const data = eval(jsContent);
 
-                })
-                .catch(function(err){
-                    console.log(err);
-                });
+                        console.log(data);
 
-            categoryDom.onchange = function(e){
-                let category = e.target.value;
-                sectionDom.innerHTML = "";
-                sectionDom.innerHTML = modtpl({
-                    data: {
-                        list: getAllChildren(moddata, category),
-                        modname: modname.mod,
+                        // 获取所有分类
+                        const allCategories = ['全部', ...new Set(data.map(item => item.category))];
+                        setCategories(allCategories);
+
+                        // 处理数据，确保每个项目都有所有字段
+                        const processedData = data.map(category => ({
+                            ...category,
+                            child: category.child.map(item => ({
+                                ...item,
+                                image: item.image || '',
+                                code: item.code || '',
+                                recipe: item.recipe || '',
+                                foodtype: item.foodtype || '',
+                                fresh: item.fresh || '',
+                                tech: item.tech || '',
+                                description: item.description || ''
+                            }))
+                        }));
+
+                        setModData(processedData);
+                        setFilteredData(processedData);
+                    } catch (err) {
+                        console.error('加载模组数据失败:', err);
+                        setError('无法加载模组数据，请检查模组名称是否正确。');
+                    } finally {
+                        setIsLoading(false);
+                    }
+                };
+
+                loadModData();
+            }, []);
+
+            // 过滤数据
+            useEffect(() => {
+                if (!modData.length) return;
+
+                let result = [...modData];
+
+                // 按分类过滤
+                if (selectedCategory !== '全部') {
+                    result = result.filter(category => category.category === selectedCategory);
+                }
+
+                // 按搜索词过滤并标记高亮
+                if (searchTerm) {
+                    const searchLower = searchTerm.toLowerCase();
+                    result = result.map(category => ({
+                        ...category,
+                        child: category.child.map(item => {
+                            // 检查是否匹配搜索词
+                            const matchesName = item.name && item.name.toLowerCase().includes(searchLower);
+                            const matchesCode = item.code && item.code.toLowerCase().includes(searchLower);
+                            const matchesDescription = item.description && item.description.toLowerCase().includes(searchLower);
+
+                            const hasMatch = matchesName || matchesCode || matchesDescription;
+
+                            return {
+                                ...item,
+                                _matchesSearch: hasMatch,
+                                _searchHighlights: {
+                                    name: matchesName,
+                                    code: matchesCode,
+                                    description: matchesDescription
+                                }
+                            };
+                        }).filter(item => item._matchesSearch) // 只保留匹配的项目
+                    })).filter(category => category.child.length > 0);
+                } else {
+                    // 如果没有搜索词，清除高亮标记
+                    result = result.map(category => ({
+                        ...category,
+                        child: category.child.map(item => ({
+                            ...item,
+                            _matchesSearch: false,
+                            _searchHighlights: {
+                                name: false,
+                                code: false,
+                                description: false
+                            }
+                        }))
+                    }));
+                }
+
+                setFilteredData(result);
+            }, [modData, selectedCategory, searchTerm]);
+
+            // 处理分类选择
+            const handleCategoryChange = (e) => {
+                setSelectedCategory(e.target.value);
+            };
+
+            // 处理搜索
+            const handleSearchChange = (e) => {
+                setSearchTerm(e.target.value);
+            };
+
+            // 处理搜索键按下
+            const handleSearchKeyPress = (e) => {
+                if (e.key === 'Enter') {
+                    setSearchTerm(e.target.value);
+                }
+            };
+
+            // 处理更新日志点击
+            const handleUpdateLogClick = () => {
+                window.location.href = `./log.html?mod=${modName}`;
+            };
+
+            // 处理返回首页
+            const handleBackClick = () => {
+                window.location.href = './index.html';
+            };
+
+            // 渲染描述内容
+            const renderDescription = (description, searchTerm = '') => {
+                if (!description) return null;
+
+                try {
+                    // 使用marked解析Markdown
+                    if (markedInstance && typeof markedInstance.parse === 'function') {
+                        let html = markedInstance.parse(description);
+
+                        // 如果有搜索词，添加高亮
+                        if (searchTerm) {
+                            html = highlightMarkdownContent(html, searchTerm);
+                        }
+
+                        return (
+                            <div
+                                className="markdown-content"
+                                dangerouslySetInnerHTML={{ __html: html }}
+                            />
+                        );
+                    } else {
+                        // 如果没有marked，使用简单替换
+                        let html = description
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                            .replace(/`(.*?)`/g, '<code>$1</code>')
+                            .replace(/#### (.*?)(\n|$)/g, '<h4>$1</h4>')
+                            .replace(/### (.*?)(\n|$)/g, '<h3>$1</h3>')
+                            .replace(/## (.*?)(\n|$)/g, '<h2>$1</h2>')
+                            .replace(/# (.*?)(\n|$)/g, '<h1>$1</h1>')
+                            .replace(/\n\n/g, '</p><p>')
+                            .replace(/\n/g, '<br/>')
+                            .replace(/\|(.*?)\|/g, (match, content) => {
+                                const rows = content.trim().split(/\n/).filter(row => row.includes('|'));
+                                if (rows.length === 0) return match;
+
+                                const tableRows = rows.map(row => {
+                                    const cells = row.split('|').filter(cell => cell.trim() !== '');
+                                    return `<tr>${cells.map(cell => `<td>${cell.trim()}</td>`).join('')}</tr>`;
+                                }).join('');
+
+                                return `<table>${tableRows}</table>`;
+                            });
+
+                        // 如果有搜索词，添加高亮
+                        if (searchTerm) {
+                            html = highlightMarkdownContent(html, searchTerm);
+                        }
+
+                        return (
+                            <div
+                                className="markdown-content"
+                                dangerouslySetInnerHTML={{ __html: `<p>${html}</p>` }}
+                            />
+                        );
+                    }
+                } catch (error) {
+                    console.error('解析Markdown失败:', error);
+                    // 如果解析失败，直接显示文本并尝试高亮
+                    if (searchTerm) {
+                        return (
+                            <p className="markdown-content">
+                                {highlightSearchText(description, searchTerm, 'description')}
+                            </p>
+                        );
+                    }
+                    return <p className="markdown-content">{description}</p>;
+                }
+            };
+
+            const highlightSearchText = (text, searchTerm, highlightClass = '') => {
+                if (!text || !searchTerm) return text;
+
+                const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`(${escapedSearchTerm})`, 'gi');
+
+                const parts = text.split(regex);
+
+                return parts.map((part, index) => {
+                    if (index % 2 === 0) {
+                        return part;
+                    } else {
+                        return React.createElement('span', {
+                            key: index,
+                            className: `search-highlight ${highlightClass}`,
+                            style: {
+                                backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                                padding: '0 2px',
+                                borderRadius: '2px',
+                                fontWeight: '600'
+                            }
+                        }, part);
                     }
                 });
             };
 
-            searchDom.onkeypress = function(e) {
-                if (e.keyCode === 13){
-                    let search = e.target.value;
-                    sectionDom.innerHTML = "";
-                    sectionDom.innerHTML = modtpl({
-                        data: {
-                            list: getAllChildren(moddata, categoryDom.value, search),
-                            modname: modname.mod,
-                        }
-                    });
-                }
+            const highlightMarkdownContent = (htmlContent, searchTerm) => {
+                if (!htmlContent || !searchTerm) return htmlContent;
+
+                const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`(?![^<]*>)(${escapedSearchTerm})`, 'gi');
+
+                return htmlContent.replace(regex, (match) =>
+                    `<span class="search-highlight description">${match}</span>`
+                );
             };
 
-            updatelogDom.onclick = function(e) {
-                window.location.href = "/dst-intro/log.html?mod=" + modname.mod;
-            };
-        })()
+            return (
+                <div className="app">
+                    <header>
+                        <h1 className="header-title">饥荒模组详情页</h1>
+                        <div className="tools">
+                            <select
+                                value={selectedCategory}
+                                onChange={handleCategoryChange}
+                                id="category"
+                            >
+                                {categories.map((category, index) => (
+                                    <option key={index} value={category}>{category}</option>
+                                ))}
+                            </select>
+                            <input
+                                type="search"
+                                id="search"
+                                placeholder="搜索内容..."
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                                onKeyPress={handleSearchKeyPress}
+                            />
+                            <button id="updatelog" onClick={handleUpdateLogClick}>
+                                更新日志
+                            </button>
+                        </div>
+                    </header>
 
+                    <main className="main-content">
+                        {isLoading ? (
+                            <div className="loading-container">
+                                <div className="spinner"></div>
+                                <p className="loading-text">正在加载模组数据...</p>
+                            </div>
+                        ) : error ? (
+                            <div className="empty-state">
+                                <h3>加载失败</h3>
+                                <p>{error}</p>
+                            </div>
+                        ) : filteredData.length === 0 ? (
+                            <div className="empty-state">
+                                <h3>未找到匹配的内容</h3>
+                                <p>请尝试其他分类或搜索关键词。</p>
+                            </div>
+                        ) : (
+                            <>
+                                {filteredData.map((category, categoryIndex) => (
+                                    <div key={categoryIndex}>
+                                        <h2 className="category-title">
+                                            {category.category}
+                                            {searchTerm && (
+                                                <span style={{
+                                                    fontSize: '0.8rem',
+                                                    marginLeft: '10px',
+                                                    padding: '2px 8px',
+                                                    background: 'var(--primary-light)',
+                                                    color: 'white',
+                                                    borderRadius: '10px',
+                                                    fontWeight: 'normal',
+                                                    verticalAlign: 'middle'
+                                                }}>
+                                                    找到 {category.child.length} 个结果
+                                                </span>
+                                            )}
+                                        </h2>
+                                        <div className="waterfall-container">
+                                            {category.child.map((item, itemIndex) => (
+                                                <div key={itemIndex} className="waterfall-card">
+                                                    <div className="waterfall-card-content">
+                                                        {/* 图片和基本信息 */}
+                                                        <div style={{ display: 'flex', gap: '15px', marginBottom: '15px' }}>
+                                                            {item.image && (
+                                                                <img
+                                                                    src={`./data/${modName}/images/${item.image}`}
+                                                                    alt={item.name}
+                                                                    style={{
+                                                                        width: '80px',
+                                                                        height: '80px',
+                                                                        borderRadius: '8px',
+                                                                        objectFit: 'cover',
+                                                                        border: `1px solid ${getComputedStyle(document.documentElement).getPropertyValue('--border-color')}`,
+                                                                        flexShrink: 0
+                                                                    }}
+                                                                    onError={(e) => {
+                                                                        e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIHJ4PSI4IiBmaWxsPSIjMzQ5OGRiIi8+PHBhdGggZD0iTTQwIDMwTDMwIDQwTDQwIDUwTTUwIDMwTDQwIDQwTDUwIDUwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==';
+                                                                    }}
+                                                                />
+                                                            )}
+                                                            <div style={{ flex: 1 }}>
+                                                                {/* 名称高亮 */}
+                                                                <h3 style={{
+                                                                    fontSize: '1.2rem',
+                                                                    fontWeight: '600',
+                                                                    marginBottom: '8px',
+                                                                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color')
+                                                                }}>
+                                                                    {searchTerm && item._searchHighlights?.name ?
+                                                                        highlightSearchText(item.name, searchTerm, 'name') :
+                                                                        item.name
+                                                                    }
+                                                                </h3>
+
+                                                                {/* 代码高亮 */}
+                                                                {item.code && (
+                                                                    <p style={{
+                                                                        fontSize: '0.9rem',
+                                                                        marginBottom: '4px',
+                                                                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary')
+                                                                    }}>
+                                                                        <strong>代码：</strong>
+                                                                        {searchTerm && item._searchHighlights?.code ?
+                                                                            highlightSearchText(item.code, searchTerm, 'code') :
+                                                                            item.code
+                                                                        }
+                                                                    </p>
+                                                                )}
+
+                                                                {/* 其他信息 */}
+                                                                {item.recipe && (
+                                                                    <p style={{
+                                                                        fontSize: '0.9rem',
+                                                                        marginBottom: '4px',
+                                                                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary')
+                                                                    }}>
+                                                                        <strong>配方：</strong>{item.recipe}
+                                                                    </p>
+                                                                )}
+                                                                {item.foodtype && (
+                                                                    <p style={{
+                                                                        fontSize: '0.9rem',
+                                                                        marginBottom: '4px',
+                                                                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary')
+                                                                    }}>
+                                                                        <strong>类型：</strong>{item.foodtype}
+                                                                    </p>
+                                                                )}
+                                                                {item.fresh && (
+                                                                    <p style={{
+                                                                        fontSize: '0.9rem',
+                                                                        marginBottom: '4px',
+                                                                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary')
+                                                                    }}>
+                                                                        <strong>保质：</strong>{item.fresh}
+                                                                    </p>
+                                                                )}
+                                                                {item.tech && (
+                                                                    <p style={{
+                                                                        fontSize: '0.9rem',
+                                                                        marginBottom: '4px',
+                                                                        color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary')
+                                                                    }}>
+                                                                        <strong>科技：</strong>{item.tech}
+                                                                    </p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Markdown内容高亮 */}
+                                                        {item.description && (
+                                                            <div style={{
+                                                                borderTop: `1px solid ${getComputedStyle(document.documentElement).getPropertyValue('--border-color')}`,
+                                                                paddingTop: '15px',
+                                                                marginTop: '15px'
+                                                            }}>
+                                                                {renderDescription(item.description, searchTerm)}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </>
+                        )}
+                    </main>
+                </div>
+            );
+        }
+
+        // 渲染应用
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     </script>
-
 </body>
+
 </html>
