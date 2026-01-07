@@ -695,7 +695,12 @@
             .tools {
                 width: 100%;
                 flex-direction: row;
-                transition: opacity 0.25s ease, max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+                transition:
+                    opacity 0.18s cubic-bezier(0.4, 0, 1, 1),
+                    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                    max-height 0.3s cubic-bezier(0.17, 0.67, 0.32, 0.95),
+                    margin 0.22s ease-out,
+                    padding 0.22s ease-out;
                 opacity: 1;
                 max-height: 50px;
                 overflow: hidden;
@@ -710,6 +715,7 @@
                 padding: 0;
                 visibility: hidden;
                 border: none;
+                transform: translateY(-8px);
             }
 
             header.compact {
@@ -722,7 +728,7 @@
             .header-title.compact {
                 font-size: 1.6rem;
                 line-height: 1.2;
-                 padding-top: 10px;
+                padding-top: 10px;
                 padding-bottom: 10px;
             }
 
@@ -857,7 +863,7 @@
 
             .header-title.compact {
                 font-size: 1.6rem;
-            padding-top: 10px;
+                padding-top: 10px;
                 padding-bottom: 10px;
             }
 
