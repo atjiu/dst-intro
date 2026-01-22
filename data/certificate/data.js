@@ -184,6 +184,7 @@
         name: "驯兽师证书",
         image: "certificate_tame.png",
         recipe: "莎草纸*1+羽毛笔*1+牛角*1",
+        tech: "制图桌",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
 
