@@ -5,6 +5,7 @@
       {
         name: "空证书",
         image: "certificate_blank.png",
+        code: "certificate_blank",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1",
         description: `
@@ -14,6 +15,7 @@
       {
         name: "读者证书",
         image: "certificate_book.png",
+        code: "certificate_book",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+恶魔燃料*1",
         description: `
@@ -27,6 +29,7 @@
       {
         name: "竞技证书",
         image: "certificate_combat.png",
+        code: "certificate_combat",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+狗牙*1",
         description: `
@@ -42,6 +45,7 @@
       {
         name: "厨师证书",
         image: "certificate_cook.png",
+        code: "certificate_cook",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+肉丸*1",
         description: `
@@ -55,6 +59,7 @@
       {
         name: "渔夫证书",
         image: "certificate_fish.png",
+        code: "certificate_fish",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+淡水鱼*1",
         description: `
@@ -68,6 +73,7 @@
       {
         name: "手工证书",
         image: "certificate_hand.png",
+        code: "certificate_hand",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+蜘蛛丝*1",
         description: `
@@ -81,6 +87,7 @@
       {
         name: "开荒证书",
         image: "certificate_till.png",
+        code: "certificate_till",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+锄头*1",
         description: `
@@ -94,6 +101,7 @@
       {
         name: "农业证书",
         image: "certificate_plant.png",
+        code: "certificate_plant",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+开荒证书*1",
         description: `
@@ -107,6 +115,7 @@
       {
         name: "采矿证书",
         image: "certificate_rock.png",
+        code: "certificate_rock",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+金块*1",
         description: `
@@ -120,6 +129,7 @@
       {
         name: "伐木证书",
         image: "certificate_tree.png",
+        code: "certificate_tree",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+木材*1",
         description: `
@@ -133,6 +143,7 @@
       {
         name: "魔法证书",
         image: "certificate_magic.png",
+        code: "certificate_magic_finish",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
 
@@ -146,6 +157,7 @@
       {
         name: "兔王任命书",
         image: "certificate_speed.png",
+        code: "certificate_speed_finish",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
 
@@ -159,6 +171,7 @@
       {
         name: "航海证书",
         image: "certificate_ocean.png",
+        code: "certificate_ocean_finish",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
 
@@ -172,6 +185,7 @@
       {
         name: "鱼人王任命书",
         image: "certificate_merm.png",
+        code: "certificate_merm_finish",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
 
@@ -183,6 +197,7 @@
       {
         name: "驯兽师证书",
         image: "certificate_tame.png",
+        code: "certificate_tame",
         recipe: "莎草纸*1+羽毛笔*1+牛角*1",
         tech: "制图桌",
         description: `
@@ -201,6 +216,7 @@
       {
         name: "红薯植株",
         image: "cer_sweetpotato.png",
+        code: "farm_plant_cer_sweetpotato",
         description: `
 随机种子可长出红薯植株
 
@@ -216,6 +232,7 @@
       {
         name: "生姜植株",
         image: "cer_ginger.png",
+        code: "farm_plant_cer_ginger",
         description: `
 随机种子可长出生姜植株
 
