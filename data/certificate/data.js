@@ -177,7 +177,7 @@
 
 鱼妹将空证书给鱼人王后，鱼人王会返还一个鱼人王任命书
 
-穿戴后可喂鱼人王，喂鱼人，让鱼人跟随成为小弟
+穿戴后可制作沼泽地皮，喂鱼人王，喂鱼人，让鱼人跟随成为小弟
             `,
       },
       {
@@ -359,6 +359,178 @@
   },
   {
     category: "调味",
-    child: []
-  }
+    child: [
+      {
+        name: "夜莓粉",
+        image: "cer_spice_ancientfruit.png",
+        code: "cer_spice_ancientfruit",
+        description: `
+3个夜莓研磨成2个夜莓粉，给料理调味，吃后可半天夜视
+            `,
+      },
+      {
+        name: "生姜粉",
+        image: "cer_spice_ginger.png",
+        code: "cer_spice_ginger",
+        description: `
+3个生姜研磨成2个生姜粉，给料理调味，吃后半天保暖
+            `,
+      },
+    ]
+  },
+  {
+    category: "建筑",
+    child: [
+      {
+        name: "石箱",
+        image: "cer_stone_chest.png",
+        code: "cer_stone_chest",
+        recipe: "石砖*3",
+        description: `
+与木箱一样，但防火
+            `,
+      },
+    ]
+  },
+  {
+    category: "物品",
+    child: [
+      {
+        name: "证书文件袋",
+        image: "certificate_folder.png",
+        code: "certificate_folder",
+        recipe: "猪皮*2+绳子*2+蜂刺*1",
+        description: `
+14个格子，用来装证书
+            `,
+      },
+      {
+        name: "兔王手杖",
+        image: "cer_rabbitking_cane.png",
+        code: "cer_rabbitking_cane",
+        recipe: "兔王棍*1+行者手杖*1+恶魔燃料*2",
+        description: `
+手持移速加成50%，耐久30天，可使用海象牙修补
+            `,
+      },
+      {
+        name: "绝望石豌豆",
+        image: "cer_dreadstonebean.png",
+        code: "cer_dreadstonebean",
+        recipe: "绝望石粑粑*1",
+        description: `
+装备农业证书在二本精练栏里制作
+
+巨大蠕虫消化掉了坚硬的外壳，留下了有生命力的绝望石种子
+            `,
+      },
+      {
+        name: "绝望石剑",
+        image: "cer_dreadstonesword.png",
+        code: "cer_dreadstonesword",
+        recipe: "绝望石*2+活木*1",
+        description: `
+基地伤害59.5与火腿棒一样，阵营伤害8.5，耐久不满时手持扣san回耐久
+            `,
+      },
+      {
+        name: "魔杖",
+        image: "cer_wand.png",
+        code: "cer_wand",
+        tech: "魔法二本",
+        recipe: "紫宝石*2+恶魔燃料*4+活木*1",
+        description: `
+装备魔法证书在魔法二本处制作
+
+使用时需装备炼金证书，可对石头施法“点石成金”将石头转成金块
+            `,
+      },
+      {
+        name: "绝望石粑粑",
+        image: "cer_dreadstone_poop.png",
+        code: "cer_dreadstone_poop",
+        description: `
+当地下的巨大蠕虫吃到绝望石时，会消化成绝望石粑粑
+
+肥力：生长素*8，堆肥*0，粪肥*0
+            `,
+      },
+      {
+        name: "蚯蚓",
+        image: "cer_earthworm.png",
+        code: "cer_earthworm",
+        description: `
+穿戴认证的开荒证书或认证的农业证书锄地有25%概率锄出蚯蚓
+
+蚯蚓在地上一段时间会钻入地下消失，掉在海上会沉下去
+
+蚯蚓可用作鱼饵，不分季节，不分早晚，功能最全的鱼饵
+
+|饱|精|血|其它|
+|---|---|---|---|
+|4.7|-10|1||
+            `,
+      },
+    ]
+  },
+  {
+    category: "植物",
+    child: [
+      {
+        name: "绝望石灌木",
+        image: "cer_dreadstoneshrub.png",
+        code: "cer_dreadstoneshrub",
+        description: `
+绝望石豌豆 种下 -> 绝望石芽
+绝望石芽 长大 -> 绝望石灌木
+
+绝望石灌木开采后可得2个绝望石
+            `,
+      },
+    ]
+  },
+  {
+    category: "芯片",
+    child: [
+      {
+        name: "战斗电路",
+        image: "wx78module_cer_combat.png",
+        code: "wx78module_cer_combat",
+        recipe: "生物数据*6+启迪碎片*1",
+        description: `
+通过扫描第三阶段的天体英雄解锁，3个针脚，点亮后增加50%伤害
+            `,
+      },
+      {
+        name: "防御电路",
+        image: "wx78module_cer_defense.png",
+        code: "wx78module_cer_defense",
+        recipe: "生物数据*4+大理石*2",
+        description: `
+通过扫描石虾解锁，3个针脚，点亮后25%吸收伤害
+            `,
+      },
+      {
+        name: "放电电路",
+        image: "wx78module_cer_lightning.png",
+        code: "wx78module_cer_lightning",
+        recipe: "生物数据*6+电羊角*2",
+        description: `
+通过扫描电羊解锁，3个针脚，点亮后攻击有带电伤害
+            `,
+      },
+    ]
+  },
+  {
+    category: "变动",
+    child: [
+      {
+        name: "WX78扫描",
+        image: "Bio_Scanalyzer.png",
+        description: `
+电气化电路扫描对象更换为亮茄
+            `,
+      },
+    ]
+  },
 ];
