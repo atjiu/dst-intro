@@ -12,5 +12,12 @@
         "intro": "永恒大陆生物有了年龄，boss越战越勇，努力追求永生。",
         "folder": "odoy",
         "logo": "modicon.png"
+    },
+    {
+        "name": "证书",
+        "author": "朋也",
+        "intro": "开启永恒大陆认证之旅。",
+        "folder": "certificate",
+        "logo": "modicon.png"
     }
 ]
