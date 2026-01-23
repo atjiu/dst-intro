@@ -505,6 +505,16 @@
 |4.7|-10|1||
             `,
       },
+      {
+        name: "金砖",
+        image: "cer_cutgold.png",
+        code: "cer_cutgold",
+        tech: "二本",
+        recipe: "金块*3",
+        description: `
+由金块锻造而成
+        `,
+      },
     ]
   },
   {
@@ -561,7 +571,8 @@
       {
         name: "真黄金地板",
         image: "turf_cer_gold.png",
-        recipe: "金块*2",
+        tech: "二本",
+        recipe: "金砖*1",
         description: `
 金光大道，前任一片光明
 
