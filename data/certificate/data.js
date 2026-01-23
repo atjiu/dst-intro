@@ -556,6 +556,21 @@
     ]
   },
   {
+    category: "地板",
+    child: [
+      {
+        name: "真黄金地板",
+        image: "turf_cer_gold.png",
+        recipe: "金块*2",
+        description: `
+金光大道，前任一片光明
+
+走在上面加速与石砖路一样
+            `,
+      },
+    ]
+  },
+  {
     category: "变动",
     child: [
       {
