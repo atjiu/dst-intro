@@ -216,6 +216,18 @@
 穿戴后再驯牛能加速20%（女武神技能加速15%），养高鸟时，每天可抚摸一次高鸟并减少一天的成长时间
             `,
       },
+      {
+        name: "炼金证书",
+        image: "certificate_alchemy.png",
+        code: "certificate_alchemy_finish",
+        description: `
+注：装备前要使用羽毛笔签上自己的名字
+
+开采被丢弃的垃圾1/8概率掉落
+
+穿戴后可像威尔逊一样炼金
+            `,
+      },
     ]
   },
   {
