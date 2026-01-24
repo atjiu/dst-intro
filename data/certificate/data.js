@@ -23,6 +23,8 @@
 
 读一次书降5耐久，并记录下读的书，再读已经记录的书仅降1耐久
 
+图书管理员读书双倍降耐久
+
 大约读18本不同的书后可完全解锁获得图书管理员阅读书籍且能生效的能力
 
 设定：书读百遍，其义自现。被永恒大陆认证的读者虽无法像图书管理员那样写书，但可以激发书中奥义
@@ -104,8 +106,8 @@
       },
       {
         name: "农业证书",
-        image: "certificate_plant.png",
-        code: "certificate_plant",
+        image: "certificate_farm.png",
+        code: "certificate_farm",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+开荒证书*1",
         description: `
@@ -118,8 +120,8 @@
       },
       {
         name: "采矿证书",
-        image: "certificate_rock.png",
-        code: "certificate_rock",
+        image: "certificate_mine.png",
+        code: "certificate_mine",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+金块*1",
         description: `
@@ -132,8 +134,8 @@
       },
       {
         name: "伐木证书",
-        image: "certificate_tree.png",
-        code: "certificate_tree",
+        image: "certificate_chop.png",
+        code: "certificate_chop",
         tech: "制图桌",
         recipe: "莎草纸*1+羽毛笔*1+木材*1",
         description: `
@@ -160,8 +162,8 @@
       },
       {
         name: "兔王任命书",
-        image: "certificate_speed.png",
-        code: "certificate_speed_finish",
+        image: "certificate_rabbit.png",
+        code: "certificate_rabbit_finish",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
 
