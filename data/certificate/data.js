@@ -551,6 +551,16 @@
 当供暖时，会发出微弱的光，只要手炉内有燃料就会一直烧下去，除非手动将其拿出
         `,
       },
+      {
+        name: "黄金锤子",
+        image: "cer_goldhammer.png",
+        code: "cer_goldhammer",
+        tech: "二本",
+        recipe: "木材*1+金块*6+绳子*2",
+        description: `
+斧，镐，铲，草叉都有金质的，锤子怎么能少！
+        `,
+      },
     ]
   },
   {
