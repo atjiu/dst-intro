@@ -63,7 +63,7 @@
             `,
       },
       {
-        name: "渔夫证书",
+        name: "钓鱼证书",
         image: "certificate_fish.png",
         code: "certificate_fish",
         tech: "制图桌",
@@ -74,6 +74,20 @@
 青蛙池塘，蚊子池塘，绿洲，洞穴池塘，选3种池塘每个池塘钓10条鱼解锁
 
 穿戴后钓鱼秒上钩
+            `,
+      },
+      {
+        name: "渔夫证书",
+        image: "certificate_oceanfish.png",
+        code: "certificate_oceanfish",
+        tech: "制图桌",
+        recipe: "羽毛笔*1+钓鱼证书*1",
+        description: `
+注：装备前要使用羽毛笔签上自己的名字
+
+戴在身上钓到16种海鱼（海鱼共18种，其中有2种是春节期间才会出现的）外加2种龙虾即可解锁
+
+穿戴后能钓上来**足够重**的海鱼，收获海草身上的藤壶而不会引起藤壶的仇恨
             `,
       },
       {
@@ -175,17 +189,15 @@
             `,
       },
       {
-        name: "航海证书",
-        image: "certificate_ocean.png",
-        code: "certificate_ocean_finish",
+        name: "猴王任命书",
+        image: "certificate_monkey.png",
+        code: "certificate_monkey_finish",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
 
 击杀大副有概率掉落
 
-穿戴后划船比大头还快
-
-设定：在永恒大陆大副也得持证抢劫！
+穿戴后划船比大头还快、可持证抢劫掏空食人花
             `,
       },
       {
