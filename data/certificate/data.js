@@ -3,10 +3,25 @@
     category: "证书",
     child: [
       {
+        name: "证书",
+        image: "certificates.png",
+        description: `
+被传送来永恒大陆的冒险家们不同的考验
+
+像往常那样去冒险吧，查理就在身边
+
+当符合查理考验条件时，查理会来到冒险家身边使用魔法生成一张考验证书
+
+每种考验证书对冒险者仅一次机会，请务必妥善保管好证书，不要遗失、擦除、烧掉了
+
+每种考验证书仅在冒险家签上字后才算正式与查理建立契约
+            `,
+      },
+      {
         name: "空证书",
         image: "certificate_blank.png",
         code: "certificate_blank",
-        tech: "制图桌",
+        tech: "无",
         recipe: "莎草纸*1+羽毛笔*1",
         description: `
 一张等待被书写的空证书
@@ -16,10 +31,10 @@
         name: "读者证书",
         image: "certificate_book.png",
         code: "certificate_book",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+恶魔燃料*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次对书籍感兴趣时（检查），查理会出现给予待完成的读者证书
 
 读一次书降5耐久，并记录下读的书，再读已经记录的书仅降1耐久
 
@@ -34,10 +49,10 @@
         name: "竞技证书",
         image: "certificate_combat.png",
         code: "certificate_combat",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+狗牙*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次击杀怪物时，查理会出现给予待完成的竞技证书
 
 仅击杀头目（有epic标签的boss）时才会降耐久，当boss死亡时，以boss为中心范围内所有装备竞技证书的玩家都算击杀者
 
@@ -52,10 +67,10 @@
         name: "厨师证书",
         image: "certificate_cook.png",
         code: "certificate_cook",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+肉丸*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次做饭时，查理会出现给予待完成的厨师证书
 
 首次收获自己烹饪的料理时可降5耐久，再次收获相同料理仅降1耐久
 
@@ -66,10 +81,10 @@
         name: "钓鱼证书",
         image: "certificate_fish.png",
         code: "certificate_fish",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+淡水鱼*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次钓上淡水鱼时，查理会出现给予待完成的钓鱼证书
 
 青蛙池塘，蚊子池塘，绿洲，洞穴池塘，选3种池塘每个池塘钓10条鱼解锁
 
@@ -80,7 +95,7 @@
         name: "渔夫证书",
         image: "certificate_oceanfish.png",
         code: "certificate_oceanfish",
-        tech: "制图桌",
+        tech: "无",
         recipe: "羽毛笔*1+钓鱼证书*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
@@ -91,13 +106,13 @@
             `,
       },
       {
-        name: "手工证书",
-        image: "certificate_hand.png",
-        code: "certificate_hand",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+蜘蛛丝*1",
+        name: "工程师证书",
+        image: "certificate_engineer.png",
+        code: "certificate_engineer",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次制作任意物品时，查理会出现给予待完成的工程师证书
 
 首次制作物品可降5耐久，再次制作已经记录的物品降1耐久
 
@@ -108,10 +123,10 @@
         name: "开荒证书",
         image: "certificate_till.png",
         code: "certificate_till",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+锄头*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次耕地时，查理会出现给予待完成的开荒证书
 
 锄100次地后解锁
 
@@ -136,10 +151,10 @@
         name: "采矿证书",
         image: "certificate_mine.png",
         code: "certificate_mine",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+金块*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次开采石头时，查理会出现给予待完成的采矿证书
 
 每次使用镐子降1耐久
 
@@ -150,10 +165,10 @@
         name: "伐木证书",
         image: "certificate_chop.png",
         code: "certificate_chop",
-        tech: "制图桌",
-        recipe: "莎草纸*1+羽毛笔*1+木材*1",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次砍倒树时，查理会出现给予待完成的伐木证书
 
 每次使用斧子降1耐久
 
@@ -218,10 +233,10 @@
         name: "驯兽师证书",
         image: "certificate_tame.png",
         code: "certificate_tame",
-        recipe: "莎草纸*1+羽毛笔*1+牛角*1",
-        tech: "制图桌",
         description: `
 注：装备前要使用羽毛笔签上自己的名字
+
+获取：首次将牛铃与牛建立联系时，查理会出现给予待完成的驯兽师证书
 
 装备着未解锁的驯兽师证书，自己驯的牛达到100%驯服度时自动解锁
 
