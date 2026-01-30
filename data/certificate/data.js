@@ -505,6 +505,7 @@
         name: "石箱",
         image: "cer_stone_chest.png",
         code: "cer_stone_chest",
+        tech: "一本",
         recipe: "石砖*3",
         description: `
 与木箱大小一样，防火，无法使用弹性空间升级
@@ -514,6 +515,7 @@
         name: "大木箱",
         image: "cer_bigwoodchest.png",
         code: "cer_bigwoodchest",
+        tech: "二本",
         recipe: "木板*5",
         description: `
 与龙鳞宝箱大小一样，不防火，无法使用弹性空间升级
