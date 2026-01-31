@@ -652,6 +652,16 @@
 斧，镐，铲，草叉都有金质的，锤子怎么能少！
         `,
       },
+      {
+        name: "怪物火腿棒",
+        image: "cer_monsterhambat.png",
+        code: "cer_monsterhambat",
+        tech: "二本",
+        recipe: "怪物肉*2+绳子*2",
+        description: `
+与火腿棒一样，拿手上掉san
+        `,
+      },
     ]
   },
   {
