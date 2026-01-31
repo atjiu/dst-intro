@@ -321,16 +321,16 @@
     category: "作物",
     child: [
       {
-        name: "红薯植株",
+        name: "番薯植株",
         image: "cer_sweetpotato.png",
         code: "farm_plant_cer_sweetpotato",
         description: `
-随机种子可长出红薯植株
+随机种子可长出番薯植株
 
 - 稀有度：普通
 - 季节：春夏秋作物
 - 属性：水x1，生长素x-2，堆肥x4，粪肥x-2
-- 产物：红薯
+- 产物：番薯
             `,
       },
       {
@@ -347,7 +347,7 @@
             `,
       },
       {
-        name: "红薯",
+        name: "番薯",
         image: "cer_sweetpotato.png",
         code: "cer_sweetpotato",
         foodtype: "VEGGIE",
@@ -361,7 +361,7 @@
             `,
       },
       {
-        name: "烤红薯",
+        name: "烤番薯",
         image: "cer_sweetpotato_cooked.png",
         code: "cer_sweetpotato_cooked",
         foodtype: "VEGGIE",
@@ -373,7 +373,7 @@
             `,
       },
       {
-        name: "红薯干",
+        name: "番薯干",
         image: "cer_sweetpotato_dried.png",
         code: "cer_sweetpotato_dried",
         foodtype: "VEGGIE",
@@ -434,13 +434,13 @@
             `,
       },
       {
-        name: "红薯丸子",
+        name: "番薯丸子",
         image: "cer_sweetpotatoballs.png",
         code: "cer_sweetpotatoballs",
         foodtype: "好东西",
         fresh: "10天",
         description: `
-红薯x2 + 甜度x1
+番薯x2 + 甜度x1
 
 |饱|精|血|其它|
 |---|---|---|---|
