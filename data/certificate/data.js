@@ -18,16 +18,6 @@
             `,
       },
       {
-        name: "空证书",
-        image: "certificate_blank.png",
-        code: "certificate_blank",
-        tech: "无",
-        recipe: "莎草纸*1+羽毛笔*1",
-        description: `
-一张等待被书写的空证书
-            `,
-      },
-      {
         name: "读者证书",
         image: "certificate_book.png",
         code: "certificate_book",
