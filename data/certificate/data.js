@@ -100,8 +100,6 @@
         name: "渔夫证书",
         image: "certificate_oceanfish.png",
         code: "certificate_oceanfish",
-        tech: "无",
-        recipe: "羽毛笔*1+钓鱼证书*1",
         description: `
 > 注：装备前要使用羽毛笔签上自己的名字
 
@@ -154,8 +152,6 @@
         name: "农业证书",
         image: "certificate_farm.png",
         code: "certificate_farm",
-        tech: "无",
-        recipe: "莎草纸*1+羽毛笔*1+开荒证书*1",
         description: `
 > 注：装备前要使用羽毛笔签上自己的名字
 
@@ -579,7 +575,7 @@
         tech: "一本",
         recipe: "石砖*3",
         description: `
-与木箱大小一样，防火，无法使用弹性空间升级
+与木箱大小一样，防火，可使用弹性空间升级
             `,
       },
       {
@@ -589,7 +585,7 @@
         tech: "二本",
         recipe: "木板*5",
         description: `
-与龙鳞宝箱大小一样，不防火，无法使用弹性空间升级
+与龙鳞宝箱大小一样，不防火，可使用弹性空间升级
             `,
       },
       {
