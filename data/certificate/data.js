@@ -485,13 +485,13 @@
             `,
       },
       {
-        name: "汉堡",
-        image: "cer_hamburger.png",
-        code: "cer_hamburger",
+        name: "肉夹馍",
+        image: "cer_rougamo.png",
+        code: "cer_rougamo",
         foodtype: "好东西",
         fresh: "10天",
         description: `
-肉度x1 + 蕨菜x1 + 菜度x1
+肉度x2 + 蕨菜x1 + 辣椒x1
 
 |饱|精|血|其它|
 |---|---|---|---|
