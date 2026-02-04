@@ -673,6 +673,19 @@
             `,
       },
       {
+        name: "W.A.R.B.I.S.剑",
+        image: "cer_wagpunk_bits_sword.png",
+        code: "cer_wagpunk_bits_sword",
+        recipe: "废料*8+电子元件*3+启迪碎片*1",
+        description: `
+与W.A.R.B.I.S.甲和头盔一样，通过蓝图解锁制作配方，锤掉被丢弃的垃圾有概率掉落制作蓝图
+
+基础伤害51，平面伤害初始1。当佩戴废料套装战斗时，平面伤害随着分析层数的增加而增加，最高平面伤害30
+
+耐久200，耐久用完不会消失，可使用自动修理机修理
+            `,
+      },
+      {
         name: "魔杖",
         image: "cer_wand.png",
         code: "cer_wand",
