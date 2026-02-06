@@ -278,6 +278,7 @@ PS：查理只会在夜晚出现
 - 可制作沼泽地皮
 - 可喂鱼人王，喂鱼人，让鱼人跟随成为小弟
 - 可以像鱼妹一样提前看见触手的位置
+- 青蛙不再主动攻击
 
 **设定：**
 - 只有鱼人王的守卫才有鱼人王任命书，普通鱼人只是平民
@@ -391,7 +392,7 @@ PS：查理只会在夜晚出现
     child: [
       {
         name: "番薯植株",
-        image: "cer_sweetpotato.png",
+        image: "cer_sweetpotato_oversized.png",
         code: "farm_plant_cer_sweetpotato",
         description: `
 随机种子可长出番薯植株
@@ -404,7 +405,7 @@ PS：查理只会在夜晚出现
       },
       {
         name: "生姜植株",
-        image: "cer_ginger.png",
+        image: "cer_ginger_oversized.png",
         code: "farm_plant_cer_ginger",
         description: `
 随机种子可长出生姜植株
@@ -417,7 +418,7 @@ PS：查理只会在夜晚出现
       },
       {
         name: "灯笼椒植株",
-        image: "cer_bellpepper.png",
+        image: "cer_bellpepper_oversized.png",
         code: "farm_plant_cer_bellpepper",
         description: `
 随机种子可长出生姜植株
