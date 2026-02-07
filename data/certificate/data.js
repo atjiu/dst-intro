@@ -163,6 +163,7 @@ PS：查理只会在夜晚出现
 **装备效果：**
 - 每次锄地有25%概率锄出蚯蚓
 - 像植物人那样随手种地
+- 种的树生长不再轮回
 
 **模组兼容：**
 - 兼容队列种植，将队列模组内的文件\`actionqueuer.lua\`打开，将大约600-700行间的\`ThePlayer:HasTag("plantkin")\`修改成\`ThePlayer:HasOneOfTags({"plantkin", "certificate_farm"})\`
