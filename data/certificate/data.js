@@ -749,6 +749,28 @@ PS：查理只会在夜晚出现
             `,
       },
       {
+        name: "纯粹辉煌豌豆",
+        image: "cer_purebrilliancebean.png",
+        code: "cer_purebrilliancebean",
+        recipe: "纯粹辉煌粑粑*1",
+        description: `
+装备农业证书在二本精练栏里制作
+
+巨大蠕虫消化掉了坚硬的外壳，留下了有生命力的纯粹辉煌种子
+            `,
+      },
+      {
+        name: "废料豌豆",
+        image: "cer_wagpunk_bitsbean.png",
+        code: "cer_wagpunk_bitsbean",
+        recipe: "废料粑粑*1",
+        description: `
+装备农业证书在二本精练栏里制作
+
+巨大蠕虫消化掉了坚硬的外壳，留下了有生命力的废料种子
+            `,
+      },
+      {
         name: "绝望石剑",
         image: "cer_dreadstonesword.png",
         code: "cer_dreadstonesword",
@@ -792,7 +814,27 @@ PS：查理只会在夜晚出现
         description: `
 当地下的巨大蠕虫吃到绝望石时，会消化成绝望石粑粑
 
-肥力：生长素x8，堆肥x0，粪肥x0
+肥力：生长素x24，堆肥x0，粪肥x0
+            `,
+      },
+      {
+        name: "纯粹辉煌粑粑",
+        image: "cer_purebrilliance_poop.png",
+        code: "cer_purebrilliance_poop",
+        description: `
+当地下的巨大蠕虫吃到纯粹辉煌时，会消化成纯粹辉煌粑粑
+
+肥力：生长素x0，堆肥x0，粪肥x24
+            `,
+      },
+      {
+        name: "废料粑粑",
+        image: "cer_wagpunk_bits_poop.png",
+        code: "cer_wagpunk_bits_poop",
+        description: `
+当地下的巨大蠕虫吃到废料时，会消化成废料粑粑
+
+肥力：生长素x0，堆肥x24，粪肥x0
             `,
       },
       {
@@ -892,6 +934,30 @@ balabala...
 绝望石芽 长大 -> 绝望石灌木
 
 绝望石灌木开采后可得2个绝望石
+            `,
+      },
+      {
+        name: "纯粹辉煌灌木",
+        image: "cer_purebrillianceshrub.png",
+        code: "cer_purebrillianceshrub",
+        description: `
+纯粹辉煌豌豆 种下 -> 纯粹辉煌芽
+
+纯粹辉煌芽 长大 -> 纯粹辉煌灌木
+
+纯粹辉煌灌木开采后可得2个纯粹辉煌
+            `,
+      },
+      {
+        name: "废料灌木",
+        image: "cer_wagpunk_bitsshrub.png",
+        code: "cer_wagpunk_bitsshrub",
+        description: `
+废料豌豆 种下 -> 废料芽
+
+废料芽 长大 -> 废料灌木
+
+废料灌木开采后可得2个废料
             `,
       },
     ]
