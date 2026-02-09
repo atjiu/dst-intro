@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支持开发者 | 饥荒联机版模组介绍</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --primary-light: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #f5f7fa;
+            --surface-color: #ffffff;
+            --text-color: #333;
+            --text-secondary: #7f8c8d;
+            --border-color: #eee;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --hover-color: #f8fafc;
+            --card-background: #ffffff;
+            --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --gradient-header: linear-gradient(90deg, #4a90e2, #28a745, #ffc107, #dc3545);
+            --gradient-encouragement: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            --back-link-color: #4a90e2;
+            --back-link-hover-bg: #4a90e2;
+            --back-link-hover-color: #ffffff;
+        }
+
+        /* 暗色主题 - 修改为与首页一致的背景色 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #ffffff;
+                --primary-light: #5ac8fa;
+                --accent-color: #ff3b30;
+                --background-color: #000000;
+                --surface-color: #1c1c1e;
+                --text-color: #e0e0e0;
+                --text-secondary: #8e8e93;
+                --border-color: #38383a;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+                --hover-color: #2c2c2e;
+                --card-background: #1c1c1e;
+                /* 修改为与首页一致的渐变背景 */
+                --gradient-bg: linear-gradient(135deg, #000000 0%, #1c1c1e 100%);
+                --gradient-header: linear-gradient(90deg, #5a9cff, #34d399, #fbbf24, #f87171);
+                --gradient-encouragement: linear-gradient(120deg, #2c5282 0%, #2a4365 100%);
+                --back-link-color: #63b3ed;
+                --back-link-hover-bg: #63b3ed;
+                --back-link-hover-color: #1a202c;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--surface-color);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px var(--shadow-color);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-header);
+            transition: background 0.3s ease;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .header .icon {
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 10px;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .qrcode-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .qrcode-item {
+            background: var(--card-background);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .qrcode-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .qrcode-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .platform-icon {
+            font-size: 1.5rem;
+        }
+
+        .qrcode-img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px;
+            background: var(--card-background);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .platform-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 15px;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .encouragement {
+            background: var(--gradient-encouragement);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            color: var(--primary-color);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .encouragement h3 {
+            margin-bottom: 15px;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .encouragement p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            transition: color 0.3s ease, border-top-color 0.3s ease;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--back-link-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 25px;
+            border: 2px solid var(--back-link-color);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--back-link-hover-bg);
+            color: var(--back-link-hover-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .qrcode-container {
+                gap: 20px;
+            }
+
+            .qrcode-item {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> <span class="icon">❤️</span> 支持开发者 <span class="icon">💰</span> </h1>
+            <p class="subtitle"> 感谢您的支持。每一份支持都将转化为更优质的功能体验与持续更新。 </p>
+        </div>
+
+        <div class="qrcode-container">
+            <div class="qrcode-item">
+                <h3><span class="platform-icon">💚</span> 微信赞赏</h3>
+                <img src="./assets/images/wechat.png" alt="微信赞赏码" class="qrcode-img">
+                <p class="platform-description">使用微信扫描，为项目注入新动力</p>
+            </div>
+
+            <div class="qrcode-item">
+                <h3><span class="platform-icon">💙</span> 支付宝支持</h3>
+                <img src="./assets/images/alipay.png" alt="支付宝收款码" class="qrcode-img">
+                <p class="platform-description">使用支付宝扫描，为项目注入新动力</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>再次感谢您对模组的支持与鼓励！</p>
+            <p>无论金额大小，每一份心意都弥足珍贵 ❤️</p>
+            <a href="index.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+</body>
+
+</html>

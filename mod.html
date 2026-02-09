@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>饥荒模组详情页</title>
+    <title>详情 | 饥荒联机版模组介绍页</title>
     <script src="./assets/js/react.development.js"></script>
     <script src="./assets/js/react-dom.development.js"></script>
     <script src="./assets/js/babel.min.js"></script>
@@ -904,6 +904,7 @@
         // 主应用组件
         function App() {
             const [modName, setModName] = useState('');
+            const [modNameTitle, setModNameTitle] = useState('');
             const [modData, setModData] = useState([]);
             const [filteredData, setFilteredData] = useState([]);
             const [isLoading, setIsLoading] = useState(true);
@@ -1002,6 +1003,13 @@
                     }
 
                     setModName(modParam);
+                    if (modParam == "ndnr") {
+                        setModNameTitle("富贵险中求");
+                    }else if (modParam == "odoy") {
+                        setModNameTitle("度日如年");
+                    }else if (modParam == "certificate") {
+                        setModNameTitle("证书");
+                    }
 
                     try {
                         const response = await fetch(`./data/${modParam}/data.js`);
@@ -1121,6 +1129,10 @@
                 window.location.href = `./log.html?mod=${modName}`;
             };
 
+            const handleDonateClick = () => {
+                window.location.href = './donate.html';
+            };
+
             // 处理返回首页
             const handleBackClick = () => {
                 window.location.href = './index.html';
@@ -1236,8 +1248,10 @@
             return (
                 <div className="app">
                     <header className={!isToolsVisible ? 'compact' : ''}>
-                        <h1 className={`header-title ${!isToolsVisible ? 'compact' : ''}`}>
-                            饥荒模组详情页
+                        <h1 className={`header-title ${!isToolsVisible ? 'compact' : ''}`}
+                            onClick={e=>window.location.href='./index.html'}
+                            style={{cursor: "pointer"}}>
+                            {modNameTitle}
                         </h1>
                         <div className={`tools ${!isToolsVisible ? 'hidden' : ''}`}>
                             <select
@@ -1258,7 +1272,13 @@
                                 onKeyPress={handleSearchKeyPress}
                             />
                             <button id="updatelog" onClick={handleUpdateLogClick}>
-                                日志
+                                📝日志
+                            </button>
+                            <button id="donate" onClick={handleDonateClick} style={{
+                                background: 'linear-gradient(135deg, #FF9500 0%, #FF7043 100%)',
+                                fontWeight: 'bold'
+                            }}>
+                                💰 打赏
                             </button>
                         </div>
                     </header>
