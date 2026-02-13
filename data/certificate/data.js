@@ -910,6 +910,26 @@ PS：查理只会在夜晚出现
 balabala...
         `,
       },
+      {
+        name: "镰刀",
+        image: "cer_scythe.png",
+        code: "cer_scythe",
+        tech: "一本",
+        recipe: "树枝*2+燧石*2",
+        description: `
+快速收割物资，范围是2，暗影镰刀收割范围是4
+        `,
+      },
+      {
+        name: "黄金镰刀",
+        image: "cer_goldscythe.png",
+        code: "cer_goldscythe",
+        tech: "二本",
+        recipe: "树枝*4+金块*2",
+        description: `
+快速收割物资，范围是3，暗影镰刀收割范围是4
+        `,
+      },
     ]
   },
   //----------------------------------------------------------------------------
