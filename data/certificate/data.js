@@ -645,16 +645,16 @@ PS：查理只会在夜晚出现
     child: [
       {
         name: "夜莓粉",
-        image: "cer_spice_ancientfruit.png",
-        code: "cer_spice_ancientfruit",
+        image: "spice_cer_ancientfruit.png",
+        code: "spice_cer_ancientfruit",
         description: `
 3个夜莓研磨成2个夜莓粉，给料理调味，吃后可半天夜视
             `,
       },
       {
         name: "生姜粉",
-        image: "cer_spice_ginger.png",
-        code: "cer_spice_ginger",
+        image: "spice_cer_ginger.png",
+        code: "spice_cer_ginger",
         description: `
 3个生姜研磨成2个生姜粉，给料理调味，吃后半天保暖
             `,
