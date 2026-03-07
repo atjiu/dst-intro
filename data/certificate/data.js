@@ -696,7 +696,7 @@ PS：查理只会在夜晚出现
         name: "石箱",
         image: "cer_stone_chest.png",
         code: "cer_stone_chest",
-        tech: "一本",
+        tech: "二本",
         recipe: "石砖*3",
         description: `
 与木箱大小一样，防火，可使用弹性空间升级
@@ -716,6 +716,7 @@ PS：查理只会在夜晚出现
         name: "地窖",
         image: "cer_cellar.png",
         code: "cer_cellar",
+        tech: "二本",
         recipe: "石砖*4+木板*4+金铲子*1",
         description: `
 有20个格子，仅能存放种植出来的作物，保鲜效果是盐盒的2倍
@@ -751,8 +752,11 @@ PS：查理只会在夜晚出现
         name: "兔王手杖",
         image: "cer_rabbitking_cane.png",
         code: "cer_rabbitking_cane",
+        tech: "魔法二本",
         recipe: "兔王棍*1+行者手杖*1+恶魔燃料*2",
         description: `
+装备兔王任命书制作
+
 手持移速加成50%，耐久30天，可使用海象牙修补
             `,
       },
